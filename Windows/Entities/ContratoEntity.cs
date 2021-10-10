@@ -13,17 +13,22 @@ namespace Windows.Entities
         [Key]
         public int Id { get; set; }
         public int ClienteId { get; set; }
-        [Column(TypeName = "varchar(75)")]
+
+        [StringLength(75)]        
         public string DireccionObra { get; set; }
-        [Column(TypeName = "varchar(150)")]
+
+        [StringLength(150)]        
         public string Referencia { get; set; }
-        [Column(TypeName = "varchar(500)")]
+
+        [StringLength(500)]        
         public string Observaciones { get; set; }
         public bool IsCombustible { get; set; }
         public bool IsTransporte { get; set; }
-        [Column(TypeName = "varchar(50)")]
+
+        [StringLength(50)]        
         public string ConceptoAdicional { get; set; }
-        [Column(TypeName = "decimal(10,2)")]
+
+                
         public decimal MontoAdicional { get; set; }
 
         //Propiedades de navegación

@@ -12,21 +12,28 @@ namespace Windows.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Column(TypeName = "varchar(8)")]
+
+        [StringLength(8)]        
         public string Codigo { get; set; }
-        [Column(TypeName = "varchar(25)")]
+
+        [StringLength(25)]        
         public string Tipo { get; set; }
-        [Column(TypeName = "varchar(50)")]
+
+        [StringLength(50)]        
         public string Descripcion { get; set; }
-        [Column(TypeName = "varchar(25)")]
+
+        [StringLength(25)]        
         public string Serie { get; set; }
-        [Column(TypeName = "varchar(25)")]
+
+        [StringLength(25)]        
         public string Marca { get; set; }
-        [Column(TypeName = "varchar(30)")]
+
+        [StringLength(30)]        
         public string Modelo { get; set; }
         public bool IsDisponible { get; set; }
         public byte[] Imagen { get; set; }
-        [Column(TypeName = "varchar(15)")]
+
+        [StringLength(15)]        
         public string Estado { get; set; }
 
         //Propiedades de navegación

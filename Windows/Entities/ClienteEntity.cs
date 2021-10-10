@@ -12,17 +12,23 @@ namespace Windows.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Column(TypeName = "varchar(11)")]
+        
+        [StringLength(11)]
         public string Documento { get; set; }
-        [Column(TypeName = "varchar(50)")]
+        
+        [StringLength(50)]
         public string Apellidos { get; set; }
-        [Column(TypeName = "varchar(50)")]
+                
+        [StringLength(50)]
         public string Nombres { get; set; }
-        [Column(TypeName = "varchar(50)")]
+
+        [StringLength(50)]        
         public string RazonSocial { get; set; }
-        [Column(TypeName = "varchar(75)")]
+
+        [StringLength(75)]        
         public string Direccion { get; set; }
-        [Column(TypeName = "varchar(15)")]
+
+        [StringLength(15)]        
         public string Celular { get; set; }
         public byte[] Imagen1 { get; set; }
         public byte[] Imagen2 { get; set; }

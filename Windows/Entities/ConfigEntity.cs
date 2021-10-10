@@ -12,9 +12,11 @@ namespace Windows.Entities
     {
         [Key]
         public int Id { get; set; }
-        [Column(TypeName = "varchar(25)")]
-        public string Key { get; set; }
-        [Column(TypeName = "varchar(50)")]
+        
+        [StringLength(25)]
+        public string Key { get; set; }        
+        
+        [StringLength(50)]
         public string Value { get; set; }
     }
 }
