@@ -30,189 +30,168 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.btnCarga = new System.Windows.Forms.Button();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.rbtnNo = new System.Windows.Forms.RadioButton();
+            this.rbtnSi = new System.Windows.Forms.RadioButton();
+            this.cmbModelo = new System.Windows.Forms.ComboBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.picImagen = new System.Windows.Forms.PictureBox();
+            this.txtSerie = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbTipo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btnCarga);
+            this.groupBox1.Controls.Add(this.txtId);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.cmbEstado);
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnNuevo);
+            this.groupBox1.Controls.Add(this.btnBuscar);
+            this.groupBox1.Controls.Add(this.btnGuardar);
+            this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.comboBox4);
-            this.groupBox1.Controls.Add(this.comboBox3);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.rbtnNo);
+            this.groupBox1.Controls.Add(this.rbtnSi);
+            this.groupBox1.Controls.Add(this.cmbModelo);
+            this.groupBox1.Controls.Add(this.cmbMarca);
+            this.groupBox1.Controls.Add(this.picImagen);
+            this.groupBox1.Controls.Add(this.txtSerie);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox2);
+            this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbTipo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(644, 338);
+            this.groupBox1.Size = new System.Drawing.Size(644, 410);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del equipo";
             // 
-            // label1
+            // btnCarga
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(99, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tipo";
+            this.btnCarga.Location = new System.Drawing.Point(591, 221);
+            this.btnCarga.Name = "btnCarga";
+            this.btnCarga.Size = new System.Drawing.Size(29, 23);
+            this.btnCarga.TabIndex = 33;
+            this.btnCarga.Text = "...";
+            this.btnCarga.UseVisualStyleBackColor = true;
+            this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
             // 
-            // comboBox1
+            // txtId
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(155, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(179, 24);
-            this.comboBox1.TabIndex = 1;
-            this.comboBox1.Text = "TABLEROS";
+            this.txtId.Location = new System.Drawing.Point(439, 18);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(146, 22);
+            this.txtId.TabIndex = 32;
+            this.txtId.Visible = false;
             // 
-            // comboBox2
+            // label9
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(455, 46);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(130, 24);
-            this.comboBox2.TabIndex = 3;
-            this.comboBox2.Text = "TAB001";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(379, 21);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 17);
+            this.label9.TabIndex = 31;
+            this.label9.Text = "Id";
+            this.label9.Visible = false;
             // 
-            // label2
+            // label8
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(397, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Código";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(81, 242);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 17);
+            this.label8.TabIndex = 30;
+            this.label8.Text = "Estado";
             // 
-            // textBox1
+            // cmbEstado
             // 
-            this.textBox1.Location = new System.Drawing.Point(155, 94);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(430, 22);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "TABLERO CUADRADO PINO PRENSADO 2X2M";
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "DISPONIBLE",
+            "EN CONTRATO",
+            "DADO DE BAJA",
+            "EN MANTENIMIENTO"});
+            this.cmbEstado.Location = new System.Drawing.Point(155, 239);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(276, 24);
+            this.cmbEstado.TabIndex = 29;
             // 
-            // label3
+            // btnEliminar
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(83, 97);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 17);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Equipo";
+            this.btnEliminar.BackColor = System.Drawing.Color.Salmon;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(25, 353);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(110, 37);
+            this.btnEliminar.TabIndex = 28;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // textBox2
+            // btnNuevo
             // 
-            this.textBox2.Location = new System.Drawing.Point(155, 122);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(276, 22);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.Text = "FHJEGB74F64F";
+            this.btnNuevo.Location = new System.Drawing.Point(516, 266);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(110, 37);
+            this.btnNuevo.TabIndex = 27;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // pictureBox1
+            // btnBuscar
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(450, 122);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(135, 122);
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.btnBuscar.Location = new System.Drawing.Point(516, 353);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(110, 37);
+            this.btnBuscar.TabIndex = 26;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // comboBox3
+            // btnGuardar
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(155, 150);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(276, 24);
-            this.comboBox3.TabIndex = 8;
-            this.comboBox3.Text = "PINEX";
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Location = new System.Drawing.Point(516, 310);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(110, 37);
+            this.btnGuardar.TabIndex = 25;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // comboBox4
+            // txtCodigo
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(155, 180);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(276, 24);
-            this.comboBox4.TabIndex = 9;
-            this.comboBox4.Text = "2X2";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(155, 212);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(41, 21);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "SI";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(202, 212);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(50, 21);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "NO";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 125);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 17);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Nro.de Serie";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(88, 153);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 17);
-            this.label5.TabIndex = 13;
-            this.label5.Text = "Marca";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(81, 183);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 17);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Modelo";
+            this.txtCodigo.Location = new System.Drawing.Point(439, 46);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(146, 22);
+            this.txtCodigo.TabIndex = 17;
             // 
             // label7
             // 
@@ -223,26 +202,154 @@ namespace Windows.Forms
             this.label7.TabIndex = 15;
             this.label7.Text = "¿Está disponible?";
             // 
-            // button1
+            // label6
             // 
-            this.button1.Location = new System.Drawing.Point(484, 274);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 40);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Aceptar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(81, 183);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 17);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Modelo";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(88, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 17);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Marca";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(47, 125);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 17);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Nro.de Serie";
+            // 
+            // rbtnNo
+            // 
+            this.rbtnNo.AutoSize = true;
+            this.rbtnNo.Location = new System.Drawing.Point(202, 212);
+            this.rbtnNo.Name = "rbtnNo";
+            this.rbtnNo.Size = new System.Drawing.Size(50, 21);
+            this.rbtnNo.TabIndex = 11;
+            this.rbtnNo.TabStop = true;
+            this.rbtnNo.Text = "NO";
+            this.rbtnNo.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSi
+            // 
+            this.rbtnSi.AutoSize = true;
+            this.rbtnSi.Checked = true;
+            this.rbtnSi.Location = new System.Drawing.Point(155, 212);
+            this.rbtnSi.Name = "rbtnSi";
+            this.rbtnSi.Size = new System.Drawing.Size(41, 21);
+            this.rbtnSi.TabIndex = 10;
+            this.rbtnSi.TabStop = true;
+            this.rbtnSi.Text = "SI";
+            this.rbtnSi.UseVisualStyleBackColor = true;
+            // 
+            // cmbModelo
+            // 
+            this.cmbModelo.FormattingEnabled = true;
+            this.cmbModelo.Items.AddRange(new object[] {
+            "ARTICUNO E43",
+            "SHELL M22"});
+            this.cmbModelo.Location = new System.Drawing.Point(155, 180);
+            this.cmbModelo.Name = "cmbModelo";
+            this.cmbModelo.Size = new System.Drawing.Size(276, 24);
+            this.cmbModelo.TabIndex = 9;
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Items.AddRange(new object[] {
+            "MAKITA",
+            "BOSCH"});
+            this.cmbMarca.Location = new System.Drawing.Point(155, 150);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(276, 24);
+            this.cmbMarca.TabIndex = 8;
+            // 
+            // picImagen
+            // 
+            this.picImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picImagen.Location = new System.Drawing.Point(450, 122);
+            this.picImagen.Name = "picImagen";
+            this.picImagen.Size = new System.Drawing.Size(135, 122);
+            this.picImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImagen.TabIndex = 7;
+            this.picImagen.TabStop = false;
+            // 
+            // txtSerie
+            // 
+            this.txtSerie.Location = new System.Drawing.Point(155, 122);
+            this.txtSerie.Name = "txtSerie";
+            this.txtSerie.Size = new System.Drawing.Size(276, 22);
+            this.txtSerie.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(83, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 17);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Equipo";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(155, 94);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(430, 22);
+            this.txtDescripcion.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(379, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Código";
+            // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "TABLEROS",
+            "MESAS",
+            "ANDAMIOS",
+            "ROTOMARTILLOS"});
+            this.cmbTipo.Location = new System.Drawing.Point(155, 46);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(179, 24);
+            this.cmbTipo.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(99, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tipo";
             // 
             // frmEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 368);
+            this.ClientSize = new System.Drawing.Size(674, 434);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmEquipos";
             this.Text = "Mantenedor de Equipos";
+            this.Load += new System.EventHandler(this.frmEquipos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -250,22 +357,30 @@ namespace Windows.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.RadioButton rbtnNo;
+        private System.Windows.Forms.RadioButton rbtnSi;
+        private System.Windows.Forms.ComboBox cmbModelo;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.PictureBox picImagen;
+        private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnCarga;
     }
 }

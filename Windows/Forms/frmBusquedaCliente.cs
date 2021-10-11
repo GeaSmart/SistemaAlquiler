@@ -11,12 +11,12 @@ using Windows.Model;
 
 namespace Windows.Forms
 {
-    public partial class frmBusqueda : Form
+    public partial class frmBusquedaCliente : Form
     {
         public int Id { get; set; }
 
         ApplicationDBContext context = new ApplicationDBContext();
-        public frmBusqueda()
+        public frmBusquedaCliente()
         {
             InitializeComponent();
         }

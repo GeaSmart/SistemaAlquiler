@@ -1,7 +1,7 @@
 ﻿
 namespace Windows.Forms
 {
-    partial class frmBusqueda
+    partial class frmBusquedaEquipo
     {
         /// <summary>
         /// Required designer variable.

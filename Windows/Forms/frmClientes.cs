@@ -27,7 +27,7 @@ namespace Windows.Forms
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmBusqueda busqueda = new frmBusqueda();
+            frmBusquedaCliente busqueda = new frmBusquedaCliente();
 
             var result = busqueda.ShowDialog();
             if (result == DialogResult.OK)

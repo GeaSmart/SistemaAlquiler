@@ -72,11 +72,17 @@
     <Compile Include="Forms\frmAlquileres.Designer.cs">
       <DependentUpon>frmAlquileres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmBusqueda.cs">
+    <Compile Include="Forms\frmBusquedaEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frmBusqueda.Designer.cs">
-      <DependentUpon>frmBusqueda.cs</DependentUpon>
+    <Compile Include="Forms\frmBusquedaEquipo.Designer.cs">
+      <DependentUpon>frmBusquedaEquipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBusquedaCliente.Designer.cs">
+      <DependentUpon>frmBusquedaCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmClientes.cs">
       <SubType>Form</SubType>
@@ -110,6 +116,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
+    <Compile Include="Model\EquipoModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ResponseModel.cs" />
     <Compile Include="Program.cs" />
@@ -121,8 +128,11 @@
     <EmbeddedResource Include="Forms\frmAlquileres.resx">
       <DependentUpon>frmAlquileres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmBusqueda.resx">
-      <DependentUpon>frmBusqueda.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frmBusquedaEquipo.resx">
+      <DependentUpon>frmBusquedaEquipo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBusquedaCliente.resx">
+      <DependentUpon>frmBusquedaCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
