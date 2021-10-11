@@ -72,6 +72,12 @@
     <Compile Include="Forms\frmAlquileres.Designer.cs">
       <DependentUpon>frmAlquileres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmBusqueda.Designer.cs">
+      <DependentUpon>frmBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,11 +104,15 @@
     <Compile Include="Model\ApplicationDBContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Utils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmAlquileres.resx">
       <DependentUpon>frmAlquileres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmBusqueda.resx">
+      <DependentUpon>frmBusqueda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
