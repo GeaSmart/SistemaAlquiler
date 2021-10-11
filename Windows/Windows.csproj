@@ -100,8 +100,18 @@
     <Compile Include="Migrations\202110101915122_initial.designer.cs">
       <DependentUpon>202110101915122_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110112054436_required1.cs" />
+    <Compile Include="Migrations\202110112054436_required1.designer.cs">
+      <DependentUpon>202110112054436_required1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202110112140599_validations.cs" />
+    <Compile Include="Migrations\202110112140599_validations.designer.cs">
+      <DependentUpon>202110112140599_validations.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
+    <Compile Include="Model\ClienteModel.cs" />
+    <Compile Include="Model\ResponseModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Utils.cs" />
@@ -125,6 +135,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110101915122_initial.resx">
       <DependentUpon>202110101915122_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110112054436_required1.resx">
+      <DependentUpon>202110112054436_required1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110112140599_validations.resx">
+      <DependentUpon>202110112140599_validations.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

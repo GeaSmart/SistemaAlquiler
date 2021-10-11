@@ -20,11 +20,9 @@ namespace Windows.Forms
             InitializeComponent();
         }
 
-
-
         private void frmClientes_Load(object sender, EventArgs e)
         {
-
+            this.btnNuevo.PerformClick();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -35,15 +33,17 @@ namespace Windows.Forms
             if (result == DialogResult.OK)
             {
                 int val = busqueda.Id;
-                //this.txtCelular.Text = val.ToString();
                 CargarCliente(val);
                 this.btnGuardar.Text = "Actualizar";
+                this.btnGuardar.Enabled = true;
+                this.btnEliminar.Enabled = true;
             }
         }
 
         private void CargarCliente(int id)
         {
-            var cliente = context.Clientes.FirstOrDefault(x => x.Id == id);
+            var cliente = ClienteModel.Obtener(id).Data;
+
             this.txtId.Text = cliente.Id.ToString();
             this.txtNombres.Text = cliente.Nombres;
             this.txtApellidos.Text = cliente.Apellidos;
@@ -54,11 +54,6 @@ namespace Windows.Forms
             this.pictureBox1.Image = Utils.Utils.ByteArrayToImage(cliente.Imagen1);
             this.pictureBox2.Image = Utils.Utils.ByteArrayToImage(cliente.Imagen2);
             this.pictureBox3.Image = Utils.Utils.ByteArrayToImage(cliente.Imagen3);
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void btnCarga1_Click(object sender, EventArgs e)
@@ -111,40 +106,66 @@ namespace Windows.Forms
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
 
-            if (this.btnGuardar.Text.Equals("Guardar"))
+            var cliente = new ClienteEntity
             {
-                var cliente = new ClienteEntity
-                {
-                    Documento = this.txtDocumento.Text,
-                    Apellidos = this.txtApellidos.Text,
-                    Nombres = this.txtNombres.Text,
-                    RazonSocial = this.txtRazonSocial.Text,
-                    Direccion = this.txtDireccion.Text,
-                    Celular = this.txtCelular.Text,
-                    Imagen1 = Utils.Utils.ImageToByteArray(this.pictureBox1.Image),
-                    Imagen2 = Utils.Utils.ImageToByteArray(this.pictureBox2.Image),
-                    Imagen3 = Utils.Utils.ImageToByteArray(this.pictureBox3.Image)
-                };
-                context.Clientes.Add(cliente);
+                Id = id,
+                Documento = this.txtDocumento.Text,
+                Apellidos = this.txtApellidos.Text,
+                Nombres = this.txtNombres.Text,
+                RazonSocial = this.txtRazonSocial.Text,
+                Direccion = this.txtDireccion.Text,
+                Celular = this.txtCelular.Text,
+                Imagen1 = Utils.Utils.ImageToByteArray(this.pictureBox1.Image),
+                Imagen2 = Utils.Utils.ImageToByteArray(this.pictureBox2.Image),
+                Imagen3 = Utils.Utils.ImageToByteArray(this.pictureBox3.Image)
+            };
+
+            var response = ClienteModel.Guardar(cliente);
+            if (response.Response)
+            {
+                MessageBox.Show("El registro fue guardado");
+                this.btnNuevo.PerformClick();
             }
             else
             {
-                int id = Convert.ToInt32(this.txtId.Text);
-                var clientex = context.Clientes.FirstOrDefault(x => x.Id == id);
-                clientex.Documento = this.txtDocumento.Text;
-                clientex.Apellidos = this.txtApellidos.Text;
-                clientex.Nombres = this.txtNombres.Text;
-                clientex.RazonSocial = this.txtRazonSocial.Text;
-                clientex.Direccion = this.txtDireccion.Text;
-                clientex.Celular = this.txtCelular.Text;
-                clientex.Imagen1 = Utils.Utils.ImageToByteArray(this.pictureBox1.Image);
-                clientex.Imagen2 = Utils.Utils.ImageToByteArray(this.pictureBox2.Image);
-                clientex.Imagen3 = Utils.Utils.ImageToByteArray(this.pictureBox3.Image);
+                MessageBox.Show(response.Message);
+            }                
+        }
 
-                //context.SaveChanges();                
-            }            
-            context.SaveChanges();
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
+            var response = ClienteModel.Eliminar(id);
+            if (response.Response)
+            {
+                MessageBox.Show("Registro eliminado");
+                this.btnNuevo.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            this.txtId.Text = "";
+            this.txtApellidos.Text = "";
+            this.txtNombres.Text = "";
+            this.txtDocumento.Text = "";
+            this.txtRazonSocial.Text = "";
+            this.txtDireccion.Text = "";
+            this.txtCelular.Text = "";
+
+            this.pictureBox1.Image = null;
+            this.pictureBox2.Image = null;
+            this.pictureBox3.Image = null;
+
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Enabled = true;
+            this.btnEliminar.Enabled = false;
         }
     }
 }

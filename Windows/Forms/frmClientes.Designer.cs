@@ -30,6 +30,10 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -50,8 +54,6 @@ namespace Windows.Forms
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -60,6 +62,8 @@ namespace Windows.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnEliminar);
+            this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.btnBuscar);
@@ -89,9 +93,49 @@ namespace Windows.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
             // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Salmon;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(16, 539);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(110, 37);
+            this.btnEliminar.TabIndex = 25;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Location = new System.Drawing.Point(854, 452);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(110, 37);
+            this.btnNuevo.TabIndex = 24;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(783, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(21, 17);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "ID";
+            this.label6.Visible = false;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(810, 34);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 22);
+            this.txtId.TabIndex = 22;
+            this.txtId.Visible = false;
+            // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(833, 473);
+            this.btnBuscar.Location = new System.Drawing.Point(854, 539);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(110, 37);
             this.btnBuscar.TabIndex = 21;
@@ -108,7 +152,8 @@ namespace Windows.Forms
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(833, 516);
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Location = new System.Drawing.Point(854, 496);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(110, 37);
             this.btnGuardar.TabIndex = 19;
@@ -132,6 +177,7 @@ namespace Windows.Forms
             this.pictureBox3.Location = new System.Drawing.Point(149, 353);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(356, 225);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 17;
             this.pictureBox3.TabStop = false;
             // 
@@ -231,14 +277,14 @@ namespace Windows.Forms
             // 
             // txtCelular
             // 
-            this.txtCelular.Location = new System.Drawing.Point(624, 62);
+            this.txtCelular.Location = new System.Drawing.Point(630, 62);
             this.txtCelular.Name = "txtCelular";
             this.txtCelular.Size = new System.Drawing.Size(100, 22);
             this.txtCelular.TabIndex = 5;
             // 
             // txtDocumento
             // 
-            this.txtDocumento.Location = new System.Drawing.Point(624, 34);
+            this.txtDocumento.Location = new System.Drawing.Point(630, 34);
             this.txtDocumento.Name = "txtDocumento";
             this.txtDocumento.Size = new System.Drawing.Size(100, 22);
             this.txtDocumento.TabIndex = 3;
@@ -263,22 +309,6 @@ namespace Windows.Forms
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(179, 22);
             this.txtNombres.TabIndex = 0;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(783, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 17);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "ID";
-            // 
-            // txtId
-            // 
-            this.txtId.Location = new System.Drawing.Point(810, 34);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(100, 22);
-            this.txtId.TabIndex = 22;
             // 
             // frmClientes
             // 
@@ -323,5 +353,7 @@ namespace Windows.Forms
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnNuevo;
     }
 }

@@ -12,12 +12,14 @@ namespace Windows.Entities
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public int ClienteId { get; set; }
 
-        [StringLength(75)]        
+        [StringLength(75)]
+        [Required]
         public string DireccionObra { get; set; }
 
-        [StringLength(150)]        
+        [StringLength(150)]
         public string Referencia { get; set; }
 
         [StringLength(500)]        

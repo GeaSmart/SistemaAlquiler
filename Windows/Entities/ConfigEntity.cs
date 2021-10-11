@@ -14,9 +14,11 @@ namespace Windows.Entities
         public int Id { get; set; }
         
         [StringLength(25)]
-        public string Key { get; set; }        
+        [Required]
+        public string Property { get; set; }        
         
         [StringLength(50)]
+        [Required]
         public string Value { get; set; }
     }
 }

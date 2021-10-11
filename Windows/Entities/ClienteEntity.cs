@@ -11,24 +11,28 @@ namespace Windows.Entities
     public class ClienteEntity
     {
         [Key]
+        [Required]
         public int Id { get; set; }
         
         [StringLength(11)]
+        [Required]
         public string Documento { get; set; }
         
         [StringLength(50)]
         public string Apellidos { get; set; }
                 
-        [StringLength(50)]
+        [StringLength(50)]        
         public string Nombres { get; set; }
 
-        [StringLength(50)]        
+        [StringLength(50)]
         public string RazonSocial { get; set; }
 
-        [StringLength(75)]        
+        [StringLength(75)]
+        [Required]
         public string Direccion { get; set; }
 
-        [StringLength(15)]        
+        [StringLength(15)]
+        [Required]
         public string Celular { get; set; }
         public byte[] Imagen1 { get; set; }
         public byte[] Imagen2 { get; set; }

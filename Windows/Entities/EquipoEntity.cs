@@ -13,27 +13,33 @@ namespace Windows.Entities
         [Key]
         public int Id { get; set; }
 
-        [StringLength(8)]        
+        [StringLength(8)]
+        [Required]
         public string Codigo { get; set; }
 
-        [StringLength(25)]        
+        [StringLength(25)]
+        [Required]
         public string Tipo { get; set; }
 
-        [StringLength(50)]        
+        [StringLength(50)]
+        [Required]
         public string Descripcion { get; set; }
 
         [StringLength(25)]        
         public string Serie { get; set; }
 
-        [StringLength(25)]        
+        [StringLength(25)]
+        [Required]
         public string Marca { get; set; }
 
-        [StringLength(30)]        
+        [StringLength(30)]
+        [Required]
         public string Modelo { get; set; }
         public bool IsDisponible { get; set; }
         public byte[] Imagen { get; set; }
 
-        [StringLength(15)]        
+        [StringLength(15)]
+        [Required]
         public string Estado { get; set; }
 
         //Propiedades de navegación

@@ -14,9 +14,11 @@ namespace Windows.Entities
         public int ContratoId { get; set; }
         [Key, Column(Order = 1)]
         public int EquipoId { get; set; }
+        [Required]
         public DateTime FechaInicio { get; set; }
+        [Required]
         public DateTime FechaFin { get; set; }
-        
+        [Required]
         public decimal Monto { get; set; }
 
         //Propiedades de navegación

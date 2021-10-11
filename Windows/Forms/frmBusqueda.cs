@@ -21,25 +21,14 @@ namespace Windows.Forms
             InitializeComponent();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void txtBusqueda_TextChanged(object sender, EventArgs e)
         {
-            var listado = context.Clientes.Where(
-                x => x.Apellidos.Contains(this.txtBusqueda.Text) ||
-                        x.Nombres.Contains(this.txtBusqueda.Text) ||
-                        x.Documento.Contains(this.txtBusqueda.Text) ||
-                        x.RazonSocial.Contains(this.txtBusqueda.Text)
-                ).ToList();
-            this.dgvData.DataSource = listado;            
+            Busqueda();
         }
 
         private void frmBusqueda_Load(object sender, EventArgs e)
         {
-
+            Busqueda();
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -51,9 +40,23 @@ namespace Windows.Forms
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
+        }
 
+        private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(this.dgvData.CurrentRow.Cells["id"].Value);
+            btnOk.PerformClick();
+        }
 
-
+        private void Busqueda()
+        {
+            var listado = context.Clientes.Where(
+                x => x.Apellidos.Contains(this.txtBusqueda.Text) ||
+                    x.Nombres.Contains(this.txtBusqueda.Text) ||
+                    x.Documento.Contains(this.txtBusqueda.Text) ||
+                    x.RazonSocial.Contains(this.txtBusqueda.Text)
+            ).ToList();
+            this.dgvData.DataSource = listado;
         }
     }
 }
