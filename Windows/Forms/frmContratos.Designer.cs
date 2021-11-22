@@ -1,7 +1,7 @@
 ﻿
 namespace Windows.Forms
 {
-    partial class frmAlquileres
+    partial class frmContratos
     {
         /// <summary>
         /// Required designer variable.
@@ -54,12 +54,20 @@ namespace Windows.Forms
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkIsTransporte = new System.Windows.Forms.CheckBox();
+            this.chkIsCombustible = new System.Windows.Forms.CheckBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDireccionObra = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.nudAdicional = new System.Windows.Forms.NumericUpDown();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtConceptoAdicional = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -72,23 +80,15 @@ namespace Windows.Forms
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.chkIsCombustible = new System.Windows.Forms.CheckBox();
-            this.chkIsTransporte = new System.Windows.Forms.CheckBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtConceptoAdicional = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.nudAdicional = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -332,6 +332,44 @@ namespace Windows.Forms
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Alquiler";
             // 
+            // chkIsTransporte
+            // 
+            this.chkIsTransporte.AutoSize = true;
+            this.chkIsTransporte.Location = new System.Drawing.Point(345, 87);
+            this.chkIsTransporte.Name = "chkIsTransporte";
+            this.chkIsTransporte.Size = new System.Drawing.Size(122, 21);
+            this.chkIsTransporte.TabIndex = 14;
+            this.chkIsTransporte.Text = "Inc.Transporte";
+            this.chkIsTransporte.UseVisualStyleBackColor = true;
+            // 
+            // chkIsCombustible
+            // 
+            this.chkIsCombustible.AutoSize = true;
+            this.chkIsCombustible.Location = new System.Drawing.Point(191, 90);
+            this.chkIsCombustible.Name = "chkIsCombustible";
+            this.chkIsCombustible.Size = new System.Drawing.Size(129, 21);
+            this.chkIsCombustible.TabIndex = 13;
+            this.chkIsCombustible.Text = "Inc.Combustible";
+            this.chkIsCombustible.UseVisualStyleBackColor = true;
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(667, 31);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(117, 50);
+            this.txtObservaciones.TabIndex = 12;
+            this.txtObservaciones.Text = "2 CDAS COLEGIO SAN LORENZO";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(558, 34);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 17);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Observaciones";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -383,6 +421,31 @@ namespace Windows.Forms
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipos";
             // 
+            // nudAdicional
+            // 
+            this.nudAdicional.Location = new System.Drawing.Point(523, 251);
+            this.nudAdicional.Name = "nudAdicional";
+            this.nudAdicional.Size = new System.Drawing.Size(120, 22);
+            this.nudAdicional.TabIndex = 18;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(520, 224);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(107, 17);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Monto adicional";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(57, 256);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(128, 17);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Concepto adicional";
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -391,6 +454,13 @@ namespace Windows.Forms
             this.label12.Size = new System.Drawing.Size(21, 17);
             this.label12.TabIndex = 3;
             this.label12.Text = "S/";
+            // 
+            // txtConceptoAdicional
+            // 
+            this.txtConceptoAdicional.Location = new System.Drawing.Point(223, 253);
+            this.txtConceptoAdicional.Name = "txtConceptoAdicional";
+            this.txtConceptoAdicional.Size = new System.Drawing.Size(282, 22);
+            this.txtConceptoAdicional.TabIndex = 15;
             // 
             // label11
             // 
@@ -409,6 +479,7 @@ namespace Windows.Forms
             this.button8.TabIndex = 1;
             this.button8.Text = "+";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // dataGridView1
             // 
@@ -513,77 +584,7 @@ namespace Windows.Forms
             this.panel1.Size = new System.Drawing.Size(833, 71);
             this.panel1.TabIndex = 7;
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(558, 34);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 17);
-            this.label13.TabIndex = 11;
-            this.label13.Text = "Observaciones";
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Location = new System.Drawing.Point(667, 31);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(117, 50);
-            this.txtObservaciones.TabIndex = 12;
-            this.txtObservaciones.Text = "2 CDAS COLEGIO SAN LORENZO";
-            // 
-            // chkIsCombustible
-            // 
-            this.chkIsCombustible.AutoSize = true;
-            this.chkIsCombustible.Location = new System.Drawing.Point(191, 90);
-            this.chkIsCombustible.Name = "chkIsCombustible";
-            this.chkIsCombustible.Size = new System.Drawing.Size(129, 21);
-            this.chkIsCombustible.TabIndex = 13;
-            this.chkIsCombustible.Text = "Inc.Combustible";
-            this.chkIsCombustible.UseVisualStyleBackColor = true;
-            // 
-            // chkIsTransporte
-            // 
-            this.chkIsTransporte.AutoSize = true;
-            this.chkIsTransporte.Location = new System.Drawing.Point(345, 87);
-            this.chkIsTransporte.Name = "chkIsTransporte";
-            this.chkIsTransporte.Size = new System.Drawing.Size(122, 21);
-            this.chkIsTransporte.TabIndex = 14;
-            this.chkIsTransporte.Text = "Inc.Transporte";
-            this.chkIsTransporte.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(57, 256);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(160, 21);
-            this.label14.TabIndex = 16;
-            this.label14.Text = "Concepto adicional";
-            // 
-            // txtConceptoAdicional
-            // 
-            this.txtConceptoAdicional.Location = new System.Drawing.Point(223, 253);
-            this.txtConceptoAdicional.Name = "txtConceptoAdicional";
-            this.txtConceptoAdicional.Size = new System.Drawing.Size(282, 22);
-            this.txtConceptoAdicional.TabIndex = 15;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(520, 224);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(134, 21);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Monto adicional";
-            // 
-            // nudAdicional
-            // 
-            this.nudAdicional.Location = new System.Drawing.Point(523, 251);
-            this.nudAdicional.Name = "nudAdicional";
-            this.nudAdicional.Size = new System.Drawing.Size(120, 22);
-            this.nudAdicional.TabIndex = 18;
-            // 
-            // frmAlquileres
+            // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -594,7 +595,7 @@ namespace Windows.Forms
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
-            this.Name = "frmAlquileres";
+            this.Name = "frmContratos";
             this.Text = "Alquileres";
             this.Load += new System.EventHandler(this.frmAlquileres_Load);
             this.groupBox1.ResumeLayout(false);
@@ -606,9 +607,9 @@ namespace Windows.Forms
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

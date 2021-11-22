@@ -19,7 +19,7 @@ namespace Windows.Forms
 
         private void contratosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAlquileres alquileres = new frmAlquileres();
+            frmContratos alquileres = new frmContratos();
             alquileres.MdiParent = this;
             alquileres.Show();
         }
