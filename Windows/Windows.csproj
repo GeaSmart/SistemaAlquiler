@@ -116,6 +116,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
+    <Compile Include="Model\ContratoModel.cs" />
     <Compile Include="Model\EquipoModel.cs" />
     <Compile Include="Model\ClienteModel.cs" />
     <Compile Include="Model\ResponseModel.cs" />

@@ -32,6 +32,7 @@ namespace Windows.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -52,34 +53,42 @@ namespace Windows.Forms
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDireccionObra = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.chkIsCombustible = new System.Windows.Forms.CheckBox();
+            this.chkIsTransporte = new System.Windows.Forms.CheckBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtConceptoAdicional = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.nudAdicional = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -127,6 +136,15 @@ namespace Windows.Forms
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del cliente";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(676, 183);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(110, 23);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Actualizar";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -297,44 +315,22 @@ namespace Windows.Forms
             this.textBox7.TabIndex = 0;
             this.textBox7.Text = "JUAN GUILLERMO CUADRADO";
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(676, 183);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 23);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Actualizar";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkIsTransporte);
+            this.groupBox2.Controls.Add(this.chkIsCombustible);
+            this.groupBox2.Controls.Add(this.txtObservaciones);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.txtReferencia);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox8);
+            this.groupBox2.Controls.Add(this.txtDireccionObra);
             this.groupBox2.Location = new System.Drawing.Point(12, 311);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(807, 100);
+            this.groupBox2.Size = new System.Drawing.Size(807, 122);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Alquiler";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 34);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(135, 17);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "Dirección de la obra";
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(191, 31);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(356, 22);
-            this.textBox8.TabIndex = 7;
-            this.textBox8.Text = "CALLE LAS GONDOLAS 234 PISO 3 INT B";
             // 
             // label10
             // 
@@ -345,55 +341,74 @@ namespace Windows.Forms
             this.label10.TabIndex = 10;
             this.label10.Text = "Referencia";
             // 
-            // textBox9
+            // txtReferencia
             // 
-            this.textBox9.Location = new System.Drawing.Point(191, 59);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(356, 22);
-            this.textBox9.TabIndex = 9;
-            this.textBox9.Text = "2 CDAS COLEGIO SAN LORENZO";
+            this.txtReferencia.Location = new System.Drawing.Point(191, 59);
+            this.txtReferencia.Name = "txtReferencia";
+            this.txtReferencia.Size = new System.Drawing.Size(356, 22);
+            this.txtReferencia.TabIndex = 9;
+            this.txtReferencia.Text = "2 CDAS COLEGIO SAN LORENZO";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(135, 17);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Dirección de la obra";
+            // 
+            // txtDireccionObra
+            // 
+            this.txtDireccionObra.Location = new System.Drawing.Point(191, 31);
+            this.txtDireccionObra.Name = "txtDireccionObra";
+            this.txtDireccionObra.Size = new System.Drawing.Size(356, 22);
+            this.txtDireccionObra.TabIndex = 7;
+            this.txtDireccionObra.Text = "CALLE LAS GONDOLAS 234 PISO 3 INT B";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.nudAdicional);
+            this.groupBox3.Controls.Add(this.label15);
+            this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.txtConceptoAdicional);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(12, 417);
+            this.groupBox3.Location = new System.Drawing.Point(12, 439);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(809, 250);
+            this.groupBox3.Size = new System.Drawing.Size(809, 298);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipos";
             // 
-            // button6
+            // label12
             // 
-            this.button6.Location = new System.Drawing.Point(704, 17);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 36);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "Imprimir";
-            this.button6.UseVisualStyleBackColor = true;
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(689, 211);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 17);
+            this.label12.TabIndex = 3;
+            this.label12.Text = "S/";
             // 
-            // button7
+            // label11
             // 
-            this.button7.Location = new System.Drawing.Point(592, 17);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(106, 36);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "Guardar";
-            this.button7.UseVisualStyleBackColor = true;
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(732, 211);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 17);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "128.80";
             // 
-            // panel1
+            // button8
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 682);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(833, 71);
-            this.panel1.TabIndex = 7;
+            this.button8.Location = new System.Drawing.Point(19, 37);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(34, 33);
+            this.button8.TabIndex = 1;
+            this.button8.Text = "+";
+            this.button8.UseVisualStyleBackColor = true;
             // 
             // dataGridView1
             // 
@@ -414,15 +429,6 @@ namespace Windows.Forms
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(727, 162);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(19, 37);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(34, 33);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "+";
-            this.button8.UseVisualStyleBackColor = true;
             // 
             // Opciones
             // 
@@ -477,29 +483,111 @@ namespace Windows.Forms
             this.Monto.ReadOnly = true;
             this.Monto.Width = 76;
             // 
-            // label11
+            // button6
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(732, 211);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 17);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "128.80";
+            this.button6.Location = new System.Drawing.Point(704, 17);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(106, 36);
+            this.button6.TabIndex = 5;
+            this.button6.Text = "Imprimir";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // label12
+            // button7
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(689, 211);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(21, 17);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "S/";
+            this.button7.Location = new System.Drawing.Point(592, 17);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(106, 36);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "Guardar";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.panel1.Controls.Add(this.button7);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 761);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(833, 71);
+            this.panel1.TabIndex = 7;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(558, 34);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 17);
+            this.label13.TabIndex = 11;
+            this.label13.Text = "Observaciones";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(667, 31);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(117, 50);
+            this.txtObservaciones.TabIndex = 12;
+            this.txtObservaciones.Text = "2 CDAS COLEGIO SAN LORENZO";
+            // 
+            // chkIsCombustible
+            // 
+            this.chkIsCombustible.AutoSize = true;
+            this.chkIsCombustible.Location = new System.Drawing.Point(191, 90);
+            this.chkIsCombustible.Name = "chkIsCombustible";
+            this.chkIsCombustible.Size = new System.Drawing.Size(129, 21);
+            this.chkIsCombustible.TabIndex = 13;
+            this.chkIsCombustible.Text = "Inc.Combustible";
+            this.chkIsCombustible.UseVisualStyleBackColor = true;
+            // 
+            // chkIsTransporte
+            // 
+            this.chkIsTransporte.AutoSize = true;
+            this.chkIsTransporte.Location = new System.Drawing.Point(345, 87);
+            this.chkIsTransporte.Name = "chkIsTransporte";
+            this.chkIsTransporte.Size = new System.Drawing.Size(122, 21);
+            this.chkIsTransporte.TabIndex = 14;
+            this.chkIsTransporte.Text = "Inc.Transporte";
+            this.chkIsTransporte.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(57, 256);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(160, 21);
+            this.label14.TabIndex = 16;
+            this.label14.Text = "Concepto adicional";
+            // 
+            // txtConceptoAdicional
+            // 
+            this.txtConceptoAdicional.Location = new System.Drawing.Point(223, 253);
+            this.txtConceptoAdicional.Name = "txtConceptoAdicional";
+            this.txtConceptoAdicional.Size = new System.Drawing.Size(282, 22);
+            this.txtConceptoAdicional.TabIndex = 15;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(520, 224);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(134, 21);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Monto adicional";
+            // 
+            // nudAdicional
+            // 
+            this.nudAdicional.Location = new System.Drawing.Point(523, 251);
+            this.nudAdicional.Name = "nudAdicional";
+            this.nudAdicional.Size = new System.Drawing.Size(120, 22);
+            this.nudAdicional.TabIndex = 18;
             // 
             // frmAlquileres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(833, 753);
+            this.ClientSize = new System.Drawing.Size(833, 832);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
@@ -518,8 +606,9 @@ namespace Windows.Forms
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,9 +642,9 @@ namespace Windows.Forms
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtReferencia;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtDireccionObra;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button6;
@@ -570,5 +659,13 @@ namespace Windows.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.CheckBox chkIsTransporte;
+        private System.Windows.Forms.CheckBox chkIsCombustible;
+        private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.NumericUpDown nudAdicional;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtConceptoAdicional;
     }
 }
