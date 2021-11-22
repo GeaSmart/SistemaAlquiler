@@ -21,16 +21,18 @@ namespace Windows.Forms
 
         private void frmAlquileres_Load(object sender, EventArgs e)
         {
-            AddRows();
+            cargarClientes();
         }
 
-        private void AddRows()
+        private void cargarClientes()
         {
-            //this.dataGridView1.Rows.Add("", "TAB001", "TABLERO CUADRADO PINO PRENSADO 2X2M", "05/01/2021", "07/01/2021", "34.00");
-            //this.dataGridView1.Rows.Add("", "MES001", "MESA CUADRADO PINO PRENSADO", "05/01/2021", "07/01/2021", "45.00");
-            //this.dataGridView1.Rows.Add("", "AND002", "ANDAMIO METAL 3M", "05/01/2021", "08/01/2021", "22.50");
-            //this.dataGridView1.Rows.Add("", "AND003", "ANDAMIO METAL 3 CUERPOS", "05/01/2021", "08/01/2021", "27.30");
+            List<ClienteEntity> clientes = new List<ClienteEntity>();
+            ResponseModel<List<ClienteEntity>> response = ClienteModel.Obtener();
+            clientes = response.Data;
 
+            this.cmbCliente.DataSource = clientes;
+            this.cmbCliente.DisplayMember = "Apellidos";
+            this.cmbCliente.ValueMember = "Id";
         }
 
         private void button7_Click(object sender, EventArgs e)
