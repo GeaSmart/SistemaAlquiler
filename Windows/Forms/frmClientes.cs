@@ -45,9 +45,7 @@ namespace Windows.Forms
             var cliente = ClienteModel.Obtener(id).Data;
 
             this.txtId.Text = cliente.Id.ToString();
-            this.txtNombres.Text = cliente.Nombres;
-            this.txtApellidos.Text = cliente.Apellidos;
-            this.txtRazonSocial.Text = cliente.RazonSocial;
+            this.txtNombres.Text = cliente.NombreCompleto;
             this.txtDocumento.Text = cliente.Documento;
             this.txtDireccion.Text = cliente.Direccion;
             this.txtCelular.Text = cliente.Celular;
@@ -112,9 +110,7 @@ namespace Windows.Forms
             {
                 Id = id,
                 Documento = this.txtDocumento.Text,
-                Apellidos = this.txtApellidos.Text,
-                Nombres = this.txtNombres.Text,
-                RazonSocial = this.txtRazonSocial.Text,
+                NombreCompleto = this.txtNombres.Text,
                 Direccion = this.txtDireccion.Text,
                 Celular = this.txtCelular.Text,
                 Imagen1 = Utils.Utils.ImageToByteArray(this.pictureBox1.Image),

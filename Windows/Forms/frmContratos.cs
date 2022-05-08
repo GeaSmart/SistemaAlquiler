@@ -31,7 +31,7 @@ namespace Windows.Forms
             clientes = response.Data;
 
             this.cmbCliente.DataSource = clientes;
-            this.cmbCliente.DisplayMember = "Apellidos";
+            this.cmbCliente.DisplayMember = "NombreCompleto";
             this.cmbCliente.ValueMember = "Id";
         }
 

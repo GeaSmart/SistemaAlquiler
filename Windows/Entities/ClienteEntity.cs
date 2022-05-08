@@ -18,14 +18,8 @@ namespace Windows.Entities
         [Required]
         public string Documento { get; set; }
         
-        [StringLength(50)]
-        public string Apellidos { get; set; }
-                
-        [StringLength(50)]        
-        public string Nombres { get; set; }
-
-        [StringLength(50)]
-        public string RazonSocial { get; set; }
+        [StringLength(150)]
+        public string NombreCompleto { get; set; }               
 
         [StringLength(75)]
         [Required]

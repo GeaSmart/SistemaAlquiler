@@ -51,10 +51,8 @@ namespace Windows.Forms
         private void Busqueda()
         {
             var listado = context.Clientes.Where(
-                x => x.Apellidos.Contains(this.txtBusqueda.Text) ||
-                    x.Nombres.Contains(this.txtBusqueda.Text) ||
-                    x.Documento.Contains(this.txtBusqueda.Text) ||
-                    x.RazonSocial.Contains(this.txtBusqueda.Text)
+                x => x.NombreCompleto.Contains(this.txtBusqueda.Text) ||                    
+                    x.Documento.Contains(this.txtBusqueda.Text)
             ).ToList();
             this.dgvData.DataSource = listado;
         }
