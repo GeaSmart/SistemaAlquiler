@@ -23,7 +23,6 @@ namespace Windows.Forms
         {
             cargarClientes();
         }
-
         private void cargarClientes()
         {
             List<ClienteEntity> clientes = new List<ClienteEntity>();
@@ -65,25 +64,39 @@ namespace Windows.Forms
 
         private void button8_Click(object sender, EventArgs e)
         {
-            //frmBusquedaEquipo busqueda = new frmBusquedaEquipo();
+            frmBusquedaEquipo busqueda = new frmBusquedaEquipo();
 
-            //var result = busqueda.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    int val = busqueda.Id;
-            //    CargarEquipo(val);
-            //    this.btnGuardar.Text = "Actualizar";
-            //    this.btnGuardar.Enabled = true;
-            //    this.btnEliminar.Enabled = true;
-            //}
-
-            frmContratosAddDetalle frm = new frmContratosAddDetalle();
-            var result = frm.ShowDialog();
+            var result = busqueda.ShowDialog();
             if (result == DialogResult.OK)
             {
-                DetalleContratoEntity detalle = frm.detalle;
-                cargarLineaDetalle(detalle);
+                int val = busqueda.Id;
+                cargarEquipo(val);
+                //this.btnGuardar.Text = "Actualizar";
+                //this.btnGuardar.Enabled = true;                
             }
+
+            //frmContratosAddDetalle frm = new frmContratosAddDetalle();
+            //var result = frm.ShowDialog();
+            //if (result == DialogResult.OK)
+            //{
+            //    DetalleContratoEntity detalle = frm.detalle;
+            //    cargarEquipo(detalle);
+            //}
+        }
+
+        private void cargarEquipo(int idEquipo)
+        {
+            ResponseModel<EquipoEntity> response = EquipoModel.Obtener(idEquipo);
+
+            var equipo = response.Data;
+
+            var rowId = dataGridView1.Rows.Add();
+            DataGridViewRow row = dataGridView1.Rows[rowId];
+
+            row.Cells["Codigo"].Value = equipo.Codigo;
+            row.Cells["Equipo"].Value = equipo.Descripcion;
+            row.Cells["Monto"].Value = "1.0";
+
         }
 
         private void cargarLineaDetalle(DetalleContratoEntity detalle)
@@ -91,6 +104,9 @@ namespace Windows.Forms
             this.dataGridView1.Rows.Add("", detalle.EquipoId.ToString(), detalle.Equipo.Descripcion, detalle.FechaInicio, detalle.FechaFin, detalle.Monto);
         }
 
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
