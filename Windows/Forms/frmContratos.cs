@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,8 @@ namespace Windows.Forms
         {
             //int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
 
+            var listaDetalle = new List<DetalleContratoEntity>();
+
             var contrato = new ContratoEntity
             {
                 ClienteId = 1,
@@ -47,8 +50,24 @@ namespace Windows.Forms
                 IsCombustible = this.chkIsCombustible.Checked,
                 IsTransporte = this.chkIsTransporte.Checked,
                 ConceptoAdicional = this.txtConceptoAdicional.Text,
-                MontoAdicional = this.nudAdicional.Value
+                MontoAdicional = this.nudAdicional.Value,
+                Detalles = listaDetalle
+
             };
+                        
+
+            foreach(DataGridViewRow fila in this.dataGridView1.Rows)
+            {
+                var detalle = new DetalleContratoEntity()
+                {
+                    Contrato = contrato,
+                    EquipoId = Convert.ToInt32(fila.Cells["EquipoId"].Value.ToString()),
+                    FechaInicio = Convert.ToDateTime(fila.Cells["FechaInicio"].Value.ToString()),
+                    FechaFin = Convert.ToDateTime(fila.Cells["FechaFin"].Value.ToString()),
+                    Monto = Convert.ToDecimal(fila.Cells["Monto"].Value.ToString())
+                };
+                listaDetalle.Add(detalle);
+            }
 
             var response = ContratoModel.Guardar(contrato);
             if (response.Response)
@@ -94,6 +113,7 @@ namespace Windows.Forms
             DataGridViewRow row = dataGridView1.Rows[rowId];
 
             row.Cells["Codigo"].Value = equipo.Codigo;
+            row.Cells["EquipoId"].Value = idEquipo;
             row.Cells["Equipo"].Value = equipo.Descripcion;
             row.Cells["Monto"].Value = "1.0";
 
@@ -105,8 +125,13 @@ namespace Windows.Forms
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
-        {
-
+        {            
+           ReportDocument reporte = new ReportDocument();
+            reporte.Load("CrystalReport1.rpt");
+            reporte.SetDatabaseLogon("sa", "EC1admin");
+            reporte.SetParameterValue("@ContratoId", "7");
+            //reporte.RecordSelectionFormula = "{vwu_FacturaElectronica.DocEntry} = " + factura.DocEntry;
+            this.crvContrato.ReportSource = reporte;
         }
     }
 }

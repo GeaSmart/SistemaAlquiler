@@ -49,6 +49,7 @@ namespace Windows.Forms
             this.button8 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +59,7 @@ namespace Windows.Forms
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.crvContrato = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
@@ -266,6 +268,7 @@ namespace Windows.Forms
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Opciones,
+            this.EquipoId,
             this.Codigo,
             this.Equipo,
             this.FechaInicio,
@@ -287,6 +290,15 @@ namespace Windows.Forms
             this.Opciones.Name = "Opciones";
             this.Opciones.ReadOnly = true;
             this.Opciones.Width = 69;
+            // 
+            // EquipoId
+            // 
+            this.EquipoId.DataPropertyName = "EquipoId";
+            this.EquipoId.HeaderText = "EquipoId";
+            this.EquipoId.MinimumWidth = 10;
+            this.EquipoId.Name = "EquipoId";
+            this.EquipoId.ReadOnly = true;
+            this.EquipoId.Width = 200;
             // 
             // Codigo
             // 
@@ -311,7 +323,6 @@ namespace Windows.Forms
             this.FechaInicio.HeaderText = "Fecha de inicio";
             this.FechaInicio.MinimumWidth = 6;
             this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.ReadOnly = true;
             this.FechaInicio.Width = 142;
             // 
             // FechaFin
@@ -320,7 +331,6 @@ namespace Windows.Forms
             this.FechaFin.HeaderText = "Fecha fin";
             this.FechaFin.MinimumWidth = 6;
             this.FechaFin.Name = "FechaFin";
-            this.FechaFin.ReadOnly = true;
             this.FechaFin.Width = 135;
             // 
             // Monto
@@ -329,7 +339,6 @@ namespace Windows.Forms
             this.Monto.HeaderText = "Monto";
             this.Monto.MinimumWidth = 6;
             this.Monto.Name = "Monto";
-            this.Monto.ReadOnly = true;
             this.Monto.Width = 117;
             // 
             // btnImprimir
@@ -363,7 +372,7 @@ namespace Windows.Forms
             this.panel1.Location = new System.Drawing.Point(0, 893);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1250, 111);
+            this.panel1.Size = new System.Drawing.Size(1830, 111);
             this.panel1.TabIndex = 7;
             // 
             // cmbCliente
@@ -383,11 +392,25 @@ namespace Windows.Forms
             this.cmbCliente.Size = new System.Drawing.Size(517, 33);
             this.cmbCliente.TabIndex = 8;
             // 
+            // crvContrato
+            // 
+            this.crvContrato.ActiveViewIndex = -1;
+            this.crvContrato.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crvContrato.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crvContrato.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crvContrato.Location = new System.Drawing.Point(1248, 115);
+            this.crvContrato.Name = "crvContrato";
+            this.crvContrato.Size = new System.Drawing.Size(559, 651);
+            this.crvContrato.TabIndex = 9;
+            // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 1004);
+            this.ClientSize = new System.Drawing.Size(1830, 1004);
+            this.Controls.Add(this.crvContrato);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
@@ -422,12 +445,6 @@ namespace Windows.Forms
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckBox chkIsTransporte;
@@ -439,5 +456,13 @@ namespace Windows.Forms
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtConceptoAdicional;
         private System.Windows.Forms.ComboBox cmbCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EquipoId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvContrato;
     }
 }
