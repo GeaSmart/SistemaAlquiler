@@ -138,6 +138,10 @@
     <Compile Include="Migrations\202205081245039_cliente-nombrecompleto.designer.cs">
       <DependentUpon>202205081245039_cliente-nombrecompleto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205111915017_contenido-contrato.cs" />
+    <Compile Include="Migrations\202205111915017_contenido-contrato.designer.cs">
+      <DependentUpon>202205111915017_contenido-contrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
     <Compile Include="Model\ContratoModel.cs" />
@@ -194,6 +198,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205081245039_cliente-nombrecompleto.resx">
       <DependentUpon>202205081245039_cliente-nombrecompleto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205111915017_contenido-contrato.resx">
+      <DependentUpon>202205111915017_contenido-contrato.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
