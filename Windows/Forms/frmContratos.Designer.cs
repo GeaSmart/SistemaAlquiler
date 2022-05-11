@@ -372,7 +372,7 @@ namespace Windows.Forms
             this.panel1.Location = new System.Drawing.Point(0, 893);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1830, 111);
+            this.panel1.Size = new System.Drawing.Size(2405, 111);
             this.panel1.TabIndex = 7;
             // 
             // cmbCliente
@@ -402,14 +402,14 @@ namespace Windows.Forms
             this.crvContrato.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvContrato.Location = new System.Drawing.Point(1248, 115);
             this.crvContrato.Name = "crvContrato";
-            this.crvContrato.Size = new System.Drawing.Size(559, 651);
+            this.crvContrato.Size = new System.Drawing.Size(1134, 651);
             this.crvContrato.TabIndex = 9;
             // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1830, 1004);
+            this.ClientSize = new System.Drawing.Size(2405, 1004);
             this.Controls.Add(this.crvContrato);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.groupBox3);
