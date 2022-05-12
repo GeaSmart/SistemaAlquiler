@@ -328,15 +328,5 @@ namespace Windows.Forms
         {
             calcularSuma();
         }
-
-        private void dgvDetalleContrato_UserAddedRow(object sender, DataGridViewRowEventArgs e)
-        {
-            calcularSuma();
-        }
-
-        private void dgvDetalleContrato_RowValidated(object sender, DataGridViewCellEventArgs e)
-        {
-            calcularSuma();
-        }
     }
 }

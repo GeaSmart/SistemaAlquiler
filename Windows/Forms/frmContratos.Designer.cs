@@ -254,8 +254,6 @@ namespace Windows.Forms
             this.dgvDetalleContrato.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
             this.dgvDetalleContrato.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetalleContrato_RowsAdded);
             this.dgvDetalleContrato.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvDetalleContrato_RowsRemoved);
-            this.dgvDetalleContrato.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleContrato_RowValidated);
-            this.dgvDetalleContrato.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDetalleContrato_UserAddedRow);
             // 
             // Opciones
             // 
