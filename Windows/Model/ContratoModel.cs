@@ -53,6 +53,39 @@ namespace Windows.Model
             return response;
         }
 
+        public static ResponseModel<List<ContratoEntity>> Obtener()
+        {
+            var response = new ResponseModel<List<ContratoEntity>>();
+            response.Response = false;
+            try
+            {
+                using (ApplicationDBContext context = new ApplicationDBContext())
+                {
+                    response.Data = context.Contratos.ToList();
+                    response.Response = true;
+                }
+            }
+            catch (DbEntityValidationException ex)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (var error in ex.EntityValidationErrors)
+                {
+                    foreach (var item in error.ValidationErrors)
+                    {
+                        sb.Append(item.ErrorMessage);
+                        sb.Append("\r\n");
+                    }
+                }
+                response.Response = false;
+                response.Message = sb.ToString();
+            }
+            catch (SystemException ex)
+            {
+                response.Message += "\r\n" + ex.Message;
+            }
+            return response;
+        }
+
         //public static ResponseModel<List<ContratoEntity>> Obtener()
         //{
         //    var response = new ResponseModel<List<ContratoEntity>>();

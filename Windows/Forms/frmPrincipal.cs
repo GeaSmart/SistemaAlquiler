@@ -37,5 +37,12 @@ namespace Windows.Forms
             clientes.MdiParent = this;
             clientes.Show();
         }
+
+        private void contratosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmReporteContrato frm = new frmReporteContrato(0);
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

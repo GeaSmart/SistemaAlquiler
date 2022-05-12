@@ -15,6 +15,7 @@ namespace Windows.Forms
 {
     public partial class frmContratos : Form
     {
+        int Id = 0;
         public frmContratos()
         {
             InitializeComponent();
@@ -37,8 +38,7 @@ namespace Windows.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            //int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
-
+            string contenido = "El arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la renta";
             var listaDetalle = new List<DetalleContratoEntity>();
 
             var contrato = new ContratoEntity
@@ -51,6 +51,7 @@ namespace Windows.Forms
                 IsTransporte = this.chkIsTransporte.Checked,
                 ConceptoAdicional = this.txtConceptoAdicional.Text,
                 MontoAdicional = this.nudAdicional.Value,
+                Contenido = contenido,
                 Detalles = listaDetalle
 
             };
@@ -72,8 +73,9 @@ namespace Windows.Forms
             var response = ContratoModel.Guardar(contrato);
             if (response.Response)
             {
-                MessageBox.Show("El registro fue guardado");
-                //this.btnNuevo.PerformClick();
+                Id = contrato.Id;
+                MessageBox.Show($"El registro fue guardado con id {Id}");
+                this.btnImprimir.Enabled = true;
             }
             else
             {
@@ -125,13 +127,32 @@ namespace Windows.Forms
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
-        {            
-           ReportDocument reporte = new ReportDocument();
-            reporte.Load("CrystalReport1.rpt");
-            reporte.SetDatabaseLogon("sa", "EC1admin");
-            reporte.SetParameterValue("@ContratoId", "7");
-            //reporte.RecordSelectionFormula = "{vwu_FacturaElectronica.DocEntry} = " + factura.DocEntry;
-            this.crvContrato.ReportSource = reporte;
+        {
+            frmReporteContrato frm = new frmReporteContrato(Id);
+            frm.ShowDialog();
+        }
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            calcularSuma();
+        }
+
+        private void calcularSuma()
+        {
+            decimal sumatoria = 0;
+            foreach(DataGridViewRow fila in this.dataGridView1.Rows)
+            {
+                //var num = fila.Cells["Monto"].ToString();
+                decimal value;
+                if (Decimal.TryParse(fila.Cells["Monto"].Value.ToString(), out value))
+                    sumatoria += value;
+            }
+            this.lblSumatoria.Text = "S/ " + sumatoria.ToString();
+        }
+
+        private void dataGridView1_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            calcularSuma();
         }
     }
 }
