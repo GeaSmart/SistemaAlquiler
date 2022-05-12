@@ -156,6 +156,10 @@
     <Compile Include="Migrations\202205121522350_contracts-fields.designer.cs">
       <DependentUpon>202205121522350_contracts-fields.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205121638548_contrato-fields-remove.cs" />
+    <Compile Include="Migrations\202205121638548_contrato-fields-remove.designer.cs">
+      <DependentUpon>202205121638548_contrato-fields-remove.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
     <Compile Include="Model\ContratoModel.cs" />
@@ -217,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205121522350_contracts-fields.resx">
       <DependentUpon>202205121522350_contracts-fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121638548_contrato-fields-remove.resx">
+      <DependentUpon>202205121638548_contrato-fields-remove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

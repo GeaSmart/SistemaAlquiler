@@ -45,12 +45,12 @@ namespace Windows.Forms
             this.crvReporte.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvReporte.Location = new System.Drawing.Point(22, 97);
             this.crvReporte.Name = "crvReporte";
-            this.crvReporte.Size = new System.Drawing.Size(1240, 749);
+            this.crvReporte.Size = new System.Drawing.Size(1356, 939);
             this.crvReporte.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(561, 32);
+            this.button1.Location = new System.Drawing.Point(561, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 37);
             this.button1.TabIndex = 1;

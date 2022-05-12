@@ -30,10 +30,9 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContratos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.chkIsTransporte = new System.Windows.Forms.CheckBox();
-            this.chkIsCombustible = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -47,27 +46,29 @@ namespace Windows.Forms
             this.label14 = new System.Windows.Forms.Label();
             this.txtConceptoAdicional = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleContrato = new System.Windows.Forms.DataGridView();
             this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EquipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.lblExiste = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleContrato)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -84,8 +85,6 @@ namespace Windows.Forms
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chkIsTransporte);
-            this.groupBox2.Controls.Add(this.chkIsCombustible);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txtReferencia);
             this.groupBox2.Controls.Add(this.label9);
@@ -94,32 +93,10 @@ namespace Windows.Forms
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(1210, 191);
+            this.groupBox2.Size = new System.Drawing.Size(1331, 166);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Alquiler";
-            // 
-            // chkIsTransporte
-            // 
-            this.chkIsTransporte.AutoSize = true;
-            this.chkIsTransporte.Location = new System.Drawing.Point(518, 136);
-            this.chkIsTransporte.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkIsTransporte.Name = "chkIsTransporte";
-            this.chkIsTransporte.Size = new System.Drawing.Size(182, 29);
-            this.chkIsTransporte.TabIndex = 14;
-            this.chkIsTransporte.Text = "Inc.Transporte";
-            this.chkIsTransporte.UseVisualStyleBackColor = true;
-            // 
-            // chkIsCombustible
-            // 
-            this.chkIsCombustible.AutoSize = true;
-            this.chkIsCombustible.Location = new System.Drawing.Point(286, 141);
-            this.chkIsCombustible.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkIsCombustible.Name = "chkIsCombustible";
-            this.chkIsCombustible.Size = new System.Drawing.Size(197, 29);
-            this.chkIsCombustible.TabIndex = 13;
-            this.chkIsCombustible.Text = "Inc.Combustible";
-            this.chkIsCombustible.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -138,7 +115,6 @@ namespace Windows.Forms
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(532, 31);
             this.txtReferencia.TabIndex = 9;
-            this.txtReferencia.Text = "2 CDAS COLEGIO SAN LORENZO";
             // 
             // label9
             // 
@@ -157,7 +133,6 @@ namespace Windows.Forms
             this.txtDireccionObra.Name = "txtDireccionObra";
             this.txtDireccionObra.Size = new System.Drawing.Size(532, 31);
             this.txtDireccionObra.TabIndex = 7;
-            this.txtDireccionObra.Text = "CALLE LAS GONDOLAS 234 PISO 3 INT B";
             // 
             // txtObservaciones
             // 
@@ -167,7 +142,6 @@ namespace Windows.Forms
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(582, 113);
             this.txtObservaciones.TabIndex = 12;
-            this.txtObservaciones.Text = "2 CDAS COLEGIO SAN LORENZO";
             // 
             // label13
             // 
@@ -187,12 +161,12 @@ namespace Windows.Forms
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.txtConceptoAdicional);
             this.groupBox3.Controls.Add(this.button8);
-            this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(16, 404);
+            this.groupBox3.Controls.Add(this.dgvDetalleContrato);
+            this.groupBox3.Location = new System.Drawing.Point(16, 372);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox3.Size = new System.Drawing.Size(1214, 446);
+            this.groupBox3.Size = new System.Drawing.Size(1331, 478);
             this.groupBox3.TabIndex = 4;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Equipos";
@@ -201,7 +175,7 @@ namespace Windows.Forms
             // 
             this.lblSumatoria.AutoSize = true;
             this.lblSumatoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSumatoria.Location = new System.Drawing.Point(1034, 316);
+            this.lblSumatoria.Location = new System.Drawing.Point(1165, 322);
             this.lblSumatoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSumatoria.Name = "lblSumatoria";
             this.lblSumatoria.Size = new System.Drawing.Size(50, 31);
@@ -255,27 +229,33 @@ namespace Windows.Forms
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // dataGridView1
+            // dgvDetalleContrato
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvDetalleContrato.AllowUserToAddRows = false;
+            this.dgvDetalleContrato.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleContrato.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Opciones,
             this.EquipoId,
             this.Codigo,
             this.Equipo,
             this.FechaInicio,
             this.FechaFin,
+            this.Dias,
+            this.MontoDia,
             this.Monto});
-            this.dataGridView1.Location = new System.Drawing.Point(110, 58);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1068, 253);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValidated);
-            this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dgvDetalleContrato.Location = new System.Drawing.Point(110, 58);
+            this.dgvDetalleContrato.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgvDetalleContrato.Name = "dgvDetalleContrato";
+            this.dgvDetalleContrato.RowHeadersWidth = 51;
+            this.dgvDetalleContrato.RowTemplate.Height = 24;
+            this.dgvDetalleContrato.Size = new System.Drawing.Size(1199, 253);
+            this.dgvDetalleContrato.TabIndex = 0;
+            this.dgvDetalleContrato.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValidated);
+            this.dgvDetalleContrato.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
+            this.dgvDetalleContrato.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetalleContrato_RowsAdded);
+            this.dgvDetalleContrato.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvDetalleContrato_RowsRemoved);
+            this.dgvDetalleContrato.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleContrato_RowValidated);
+            this.dgvDetalleContrato.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvDetalleContrato_UserAddedRow);
             // 
             // Opciones
             // 
@@ -317,6 +297,8 @@ namespace Windows.Forms
             // FechaInicio
             // 
             this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle9.NullValue = null;
+            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle9;
             this.FechaInicio.HeaderText = "Fecha de inicio";
             this.FechaInicio.MinimumWidth = 6;
             this.FechaInicio.Name = "FechaInicio";
@@ -330,6 +312,21 @@ namespace Windows.Forms
             this.FechaFin.Name = "FechaFin";
             this.FechaFin.Width = 135;
             // 
+            // Dias
+            // 
+            this.Dias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Dias.HeaderText = "Dias";
+            this.Dias.MinimumWidth = 10;
+            this.Dias.Name = "Dias";
+            // 
+            // MontoDia
+            // 
+            this.MontoDia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MontoDia.HeaderText = "MontoDia";
+            this.MontoDia.MinimumWidth = 10;
+            this.MontoDia.Name = "MontoDia";
+            this.MontoDia.Width = 149;
+            // 
             // Monto
             // 
             this.Monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -340,19 +337,18 @@ namespace Windows.Forms
             // 
             // btnImprimir
             // 
-            this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(1056, 22);
+            this.btnImprimir.Location = new System.Drawing.Point(1087, 27);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(159, 56);
+            this.btnImprimir.Size = new System.Drawing.Size(238, 56);
             this.btnImprimir.TabIndex = 5;
-            this.btnImprimir.Text = "Imprimir";
+            this.btnImprimir.Text = "Guardar e Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(888, 22);
+            this.btnGuardar.Location = new System.Drawing.Point(920, 27);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(159, 56);
@@ -367,16 +363,17 @@ namespace Windows.Forms
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnImprimir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 1045);
+            this.panel1.Location = new System.Drawing.Point(0, 1028);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1252, 92);
+            this.panel1.Size = new System.Drawing.Size(1369, 102);
             this.panel1.TabIndex = 7;
             // 
             // cmbCliente
             // 
             this.cmbCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCliente.FormattingEnabled = true;
             this.cmbCliente.Items.AddRange(new object[] {
             "peru",
@@ -384,68 +381,74 @@ namespace Windows.Forms
             "chile",
             "brasil",
             "parag"});
-            this.cmbCliente.Location = new System.Drawing.Point(260, 138);
+            this.cmbCliente.Location = new System.Drawing.Point(260, 141);
             this.cmbCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(517, 33);
             this.cmbCliente.TabIndex = 8;
+            this.cmbCliente.SelectedIndexChanged += new System.EventHandler(this.cmbCliente_SelectedIndexChanged);
             // 
-            // radioButton1
+            // txtBuscarCliente
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(35, 41);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(129, 29);
-            this.radioButton1.TabIndex = 13;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "DNI/RUC";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(187, 41);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(118, 29);
-            this.radioButton2.TabIndex = 14;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Nombre";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(329, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(340, 31);
-            this.textBox1.TabIndex = 15;
+            this.txtBuscarCliente.Location = new System.Drawing.Point(34, 41);
+            this.txtBuscarCliente.Name = "txtBuscarCliente";
+            this.txtBuscarCliente.Size = new System.Drawing.Size(340, 31);
+            this.txtBuscarCliente.TabIndex = 15;
+            this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Controls.Add(this.btnNuevo);
+            this.groupBox1.Controls.Add(this.lblExiste);
+            this.groupBox1.Controls.Add(this.txtBuscarCliente);
             this.groupBox1.Location = new System.Drawing.Point(25, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(762, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1322, 100);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar cliente";
             // 
-            // button1
+            // btnNuevo
             // 
-            this.button1.Location = new System.Drawing.Point(831, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 40);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Crear nuevo";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnNuevo.Location = new System.Drawing.Point(1135, 36);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(165, 40);
+            this.btnNuevo.TabIndex = 17;
+            this.btnNuevo.Text = "Crear nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Visible = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // lblExiste
+            // 
+            this.lblExiste.AutoSize = true;
+            this.lblExiste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExiste.ForeColor = System.Drawing.Color.Red;
+            this.lblExiste.Location = new System.Drawing.Point(403, 44);
+            this.lblExiste.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblExiste.Name = "lblExiste";
+            this.lblExiste.Size = new System.Drawing.Size(19, 29);
+            this.lblExiste.TabIndex = 18;
+            this.lblExiste.Text = ".";
+            this.lblExiste.Visible = false;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(1166, 957);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(159, 56);
+            this.btnLimpiar.TabIndex = 17;
+            this.btnLimpiar.Text = "Nuevo";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1252, 1137);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1369, 1130);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.groupBox3);
@@ -457,7 +460,7 @@ namespace Windows.Forms
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(700, 800);
             this.Name = "frmContratos";
-            this.Text = "Alquileres";
+            this.Text = "Contratos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmAlquileres_Load);
             this.groupBox2.ResumeLayout(false);
@@ -465,7 +468,7 @@ namespace Windows.Forms
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleContrato)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -482,13 +485,11 @@ namespace Windows.Forms
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtDireccionObra;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDetalleContrato;
         private System.Windows.Forms.Button btnImprimir;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.CheckBox chkIsTransporte;
-        private System.Windows.Forms.CheckBox chkIsCombustible;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown nudAdicional;
@@ -496,18 +497,20 @@ namespace Windows.Forms
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtConceptoAdicional;
         private System.Windows.Forms.ComboBox cmbCliente;
+        private System.Windows.Forms.Label lblSumatoria;
+        private System.Windows.Forms.TextBox txtBuscarCliente;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Label lblExiste;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaInicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MontoDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.Label lblSumatoria;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

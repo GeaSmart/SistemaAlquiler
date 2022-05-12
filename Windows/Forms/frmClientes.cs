@@ -113,9 +113,9 @@ namespace Windows.Forms
                 NombreCompleto = this.txtNombres.Text,
                 Direccion = this.txtDireccion.Text,
                 Celular = this.txtCelular.Text,
-                Imagen1 = Utils.Utils.ImageToByteArray(this.pictureBox1.Image),
-                Imagen2 = Utils.Utils.ImageToByteArray(this.pictureBox2.Image),
-                Imagen3 = Utils.Utils.ImageToByteArray(this.pictureBox3.Image)
+                Imagen1 = this.pictureBox1.Image != null? Utils.Utils.ImageToByteArray(this.pictureBox1.Image):null,
+                Imagen2 = this.pictureBox1.Image != null ? Utils.Utils.ImageToByteArray(this.pictureBox2.Image) : null,
+                Imagen3 = this.pictureBox1.Image != null ? Utils.Utils.ImageToByteArray(this.pictureBox3.Image) : null,
             };
 
             var response = ClienteModel.Guardar(cliente);

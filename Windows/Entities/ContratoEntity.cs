@@ -24,13 +24,10 @@ namespace Windows.Entities
 
         [StringLength(500)]        
         public string Observaciones { get; set; }
-        public bool IsCombustible { get; set; }
-        public bool IsTransporte { get; set; }
 
         [StringLength(50)]        
         public string ConceptoAdicional { get; set; }
-
-                
+                        
         public decimal MontoAdicional { get; set; }
         public string Contenido { get; set; }
         [StringLength(15)]

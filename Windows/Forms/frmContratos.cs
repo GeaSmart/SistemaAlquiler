@@ -16,6 +16,7 @@ namespace Windows.Forms
     public partial class frmContratos : Form
     {
         int Id = 0;
+        ApplicationDBContext context = new ApplicationDBContext();
         public frmContratos()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace Windows.Forms
 
         private void frmAlquileres_Load(object sender, EventArgs e)
         {
-            cargarClientes();
+            //cargarClientes();
         }
         private void cargarClientes()
         {
@@ -38,17 +39,235 @@ namespace Windows.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
+            GuardarContrato();
+            Limpiar();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            frmBusquedaEquipo busqueda = new frmBusquedaEquipo();
+
+            var result = busqueda.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                int val = busqueda.Id;
+                cargarEquipo(val);
+                                
+                calcularDias();
+                calcularMonto();
+                calcularSuma();
+            }
+        }
+
+        private void cargarEquipo(int idEquipo)
+        {
+            ResponseModel<EquipoEntity> response = EquipoModel.Obtener(idEquipo);
+
+            var equipo = response.Data;
+
+            var rowId = dgvDetalleContrato.Rows.Add();
+            DataGridViewRow row = dgvDetalleContrato.Rows[rowId];
+
+            row.Cells["Codigo"].Value = equipo.Codigo;
+            row.Cells["EquipoId"].Value = idEquipo;
+            row.Cells["Equipo"].Value = equipo.Descripcion;
+            row.Cells["Monto"].Value = "";
+
+            row.Cells["FechaInicio"].Value = DateTime.Now.ToShortDateString();
+            row.Cells["FechaFin"].Value = DateTime.Now.ToShortDateString();
+            row.Cells["MontoDia"].Value = equipo.PrecioBaseDia.ToString();
+        }
+
+        private void cargarLineaDetalle(DetalleContratoEntity detalle)
+        {
+            this.dgvDetalleContrato.Rows.Add("", detalle.EquipoId.ToString(), detalle.Equipo.Descripcion, detalle.FechaInicio, detalle.FechaFin, detalle.Monto);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            if (GuardarContrato())
+            {
+                frmReporteContrato frm = new frmReporteContrato(Id);
+                frm.MdiParent = this.MdiParent;
+                frm.Show();
+            }
+            Limpiar();
+        }
+
+        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            calcularSuma();
+            calcularDias();
+            calcularMonto();
+        }
+
+        private void dataGridView1_CellValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            calcularSuma();
+            calcularDias();
+            calcularMonto();
+        }
+
+        private void txtBuscarCliente_TextChanged(object sender, EventArgs e)
+        {
+            BusquedaClientes();
+        }
+
+        private void calcularSuma()
+        {
+            decimal sumatoria = 0;
+            foreach (DataGridViewRow fila in this.dgvDetalleContrato.Rows)
+            {
+                //var num = fila.Cells["Monto"].ToString();
+                decimal value;
+                if (fila.Cells["Monto"].Value != null)
+                {
+                    if (Decimal.TryParse(fila.Cells["Monto"].Value.ToString(), out value))
+                        sumatoria += value;
+                }
+            }
+            this.lblSumatoria.Text = "S/ " + sumatoria.ToString();
+        }
+
+        private void calcularDias()
+        {
+            foreach (DataGridViewRow fila in this.dgvDetalleContrato.Rows)
+            {
+                //var num = fila.Cells["Monto"].ToString();
+                DateTime fechaInicio;
+                DateTime fechaFin;
+                int dias = 0;
+
+                if (DateTime.TryParse(fila.Cells["FechaInicio"].Value.ToString(), out fechaInicio) &&
+                    DateTime.TryParse(fila.Cells["FechaFin"].Value.ToString(), out fechaFin))
+                    dias = (int)(fechaFin - fechaInicio).TotalDays + 1;
+
+                fila.Cells["Dias"].Value = dias.ToString();
+            }            
+        }
+
+        private void calcularMonto()
+        {
+            foreach (DataGridViewRow fila in this.dgvDetalleContrato.Rows)
+            {                               
+                int dias = 0;
+                decimal monto = 0;
+                decimal montoMultiplicado = 0;
+
+                if (int.TryParse(fila.Cells["Dias"].Value.ToString(), out dias) &&
+                    Decimal.TryParse(fila.Cells["MontoDia"].Value.ToString(), out monto))
+                    montoMultiplicado = dias * monto;
+
+                fila.Cells["Monto"].Value = montoMultiplicado.ToString();
+            }
+        }
+        private void BusquedaClientes()
+        {
+                var listado = context.Clientes.Where(
+                    x => x.NombreCompleto.Contains(this.txtBuscarCliente.Text) ||
+                        x.Documento.Contains(this.txtBuscarCliente.Text)
+                ).ToList();
+
+            if (listado.Count > 0 && this.txtBuscarCliente.Text.Length > 0)
+            {
+                this.cmbCliente.DataSource = listado;
+                this.cmbCliente.DisplayMember = "NombreCompleto";
+                this.cmbCliente.ValueMember = "Id";
+
+                this.lblExiste.Text = "";
+                this.lblExiste.Visible = false;
+                this.btnNuevo.Visible = false;
+            }
+            else
+            {
+                this.cmbCliente.DataSource = null;
+                this.cmbCliente.SelectedIndex = -1;
+
+                this.lblExiste.Text = "No se encontraron clientes";
+                this.lblExiste.Visible = true;
+                this.btnNuevo.Visible = true;
+            }
+            
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            frmClientes frm = new frmClientes();
+            frm.MdiParent = this.MdiParent;
+            frm.Show();
+        }
+
+        private void cmbCliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.cmbCliente.SelectedValue != null)
+            {
+                int id = 0;
+                if (int.TryParse(this.cmbCliente.SelectedValue.ToString(), out id))
+                    cargarUltimaDireccionObra(id);
+            }
+            else
+            {
+                this.txtDireccionObra.Text = "";
+            }
+        }
+
+        private void cargarUltimaDireccionObra(int clienteId)
+        {
+            var ultimoContrato = context.Contratos.Where(x => x.ClienteId == clienteId).OrderByDescending(x => x.Id).FirstOrDefault();
+            if (ultimoContrato != null)
+            {
+                this.txtDireccionObra.Text = ultimoContrato.DireccionObra;
+            }
+            else
+            {
+                this.txtDireccionObra.Text = "";
+            }
+                
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            Id = 0;
+            this.txtBuscarCliente.Text = "";
+
+            this.cmbCliente.DataSource = null;
+            this.cmbCliente.SelectedIndex = -1;
+
+            this.lblExiste.Text = "No se encontraron clientes";
+            this.lblExiste.Visible = false;
+            this.btnNuevo.Visible = false;
+
+            this.txtDireccionObra.Text = "";
+            this.txtReferencia.Text = "";
+
+            this.dgvDetalleContrato.Rows.Clear();
+
+            this.txtConceptoAdicional.Text = "";
+            this.nudAdicional.Value = 0;
+
+            this.txtObservaciones.Text = "";
+
+            this.lblSumatoria.Text = "";
+        }
+
+        private bool GuardarContrato()
+        {
+            bool flag = false;
             string contenido = "El arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la rentaEl arrendamiento se da cuando el propietario de un bien cede temporalmente su uso y disfrute a otra persona a cambio del pago de una renta. Popularmente se conoce como alquiler, y se formaliza en un contrato. Se llama arrendador al propietario que cede la posesión del bien y arrendatario a quien la adquiere a cambio del pago de la renta";
             var listaDetalle = new List<DetalleContratoEntity>();
 
+            int clienteId = this.cmbCliente.SelectedValue != null ? Convert.ToInt32(this.cmbCliente.SelectedValue.ToString()) : 0;
             var contrato = new ContratoEntity
             {
-                ClienteId = Convert.ToInt32(this.cmbCliente.SelectedValue.ToString()),
+                ClienteId = clienteId,
                 DireccionObra = this.txtDireccionObra.Text,
                 Referencia = this.txtReferencia.Text,
                 Observaciones = this.txtObservaciones.Text,
-                IsCombustible = this.chkIsCombustible.Checked,
-                IsTransporte = this.chkIsTransporte.Checked,
                 ConceptoAdicional = this.txtConceptoAdicional.Text,
                 MontoAdicional = this.nudAdicional.Value,
                 Contenido = contenido,
@@ -56,7 +275,7 @@ namespace Windows.Forms
 
             };
 
-            foreach(DataGridViewRow fila in this.dataGridView1.Rows)
+            foreach (DataGridViewRow fila in this.dgvDetalleContrato.Rows)
             {
                 var detalle = new DetalleContratoEntity()
                 {
@@ -71,89 +290,51 @@ namespace Windows.Forms
 
             try
             {
-                var response = ContratoModel.Guardar(contrato);
-
-                if (response.Response)
+                if (contrato.ClienteId > 0 && contrato.Detalles.Count > 0)
                 {
-                    Id = contrato.Id;
-                    MessageBox.Show($"El registro fue guardado con id {Id}");
-                    this.btnImprimir.Enabled = true;
+                    var response = ContratoModel.Guardar(contrato);
+
+                    if (response.Response)
+                    {
+                        Id = contrato.Id;
+                        MessageBox.Show($"El registro fue guardado con id {Id}");                                                
+                        flag = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(response.Message);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(response.Message);
+                    MessageBox.Show("Asegúrese que tiene seleccionado un cliente y que añadió al menos 1 equipo");
                 }
             }
-            catch(SystemException ex)
+            catch (SystemException ex)
             {
                 MessageBox.Show(ex.Message);
+                return false;
             }
-            
 
+            return flag;
         }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            frmBusquedaEquipo busqueda = new frmBusquedaEquipo();
-
-            var result = busqueda.ShowDialog();
-            if (result == DialogResult.OK)
-            {
-                int val = busqueda.Id;
-                cargarEquipo(val);
-                //this.btnGuardar.Text = "Actualizar";
-                //this.btnGuardar.Enabled = true;                
-            }
-        }
-
-        private void cargarEquipo(int idEquipo)
-        {
-            ResponseModel<EquipoEntity> response = EquipoModel.Obtener(idEquipo);
-
-            var equipo = response.Data;
-
-            var rowId = dataGridView1.Rows.Add();
-            DataGridViewRow row = dataGridView1.Rows[rowId];
-
-            row.Cells["Codigo"].Value = equipo.Codigo;
-            row.Cells["EquipoId"].Value = idEquipo;
-            row.Cells["Equipo"].Value = equipo.Descripcion;
-            row.Cells["Monto"].Value = "";
-
-            row.Cells["FechaInicio"].Value = "05/11/2022";
-            row.Cells["FechaFin"].Value = "05/15/2022";
-        }
-
-        private void cargarLineaDetalle(DetalleContratoEntity detalle)
-        {
-            this.dataGridView1.Rows.Add("", detalle.EquipoId.ToString(), detalle.Equipo.Descripcion, detalle.FechaInicio, detalle.FechaFin, detalle.Monto);
-        }
-
-        private void btnImprimir_Click(object sender, EventArgs e)
-        {
-            frmReporteContrato frm = new frmReporteContrato(Id);
-            frm.ShowDialog();
-        }
-
-        private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        private void dgvDetalleContrato_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             calcularSuma();
         }
 
-        private void calcularSuma()
+        private void dgvDetalleContrato_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            decimal sumatoria = 0;
-            foreach(DataGridViewRow fila in this.dataGridView1.Rows)
-            {
-                //var num = fila.Cells["Monto"].ToString();
-                decimal value;
-                if (Decimal.TryParse(fila.Cells["Monto"].Value.ToString(), out value))
-                    sumatoria += value;
-            }
-            this.lblSumatoria.Text = "S/ " + sumatoria.ToString();
+            calcularSuma();
         }
 
-        private void dataGridView1_CellValidated(object sender, DataGridViewCellEventArgs e)
+        private void dgvDetalleContrato_UserAddedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            calcularSuma();
+        }
+
+        private void dgvDetalleContrato_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
             calcularSuma();
         }
