@@ -29,6 +29,7 @@ namespace Windows.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContratos));
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkIsTransporte = new System.Windows.Forms.CheckBox();
@@ -239,12 +240,12 @@ namespace Windows.Forms
             // 
             // button8
             // 
+            this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(28, 58);
             this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(51, 52);
+            this.button8.Size = new System.Drawing.Size(74, 68);
             this.button8.TabIndex = 1;
-            this.button8.Text = "+";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -260,12 +261,12 @@ namespace Windows.Forms
             this.FechaInicio,
             this.FechaFin,
             this.Monto});
-            this.dataGridView1.Location = new System.Drawing.Point(88, 58);
+            this.dataGridView1.Location = new System.Drawing.Point(110, 58);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1090, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(1068, 253);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValidated);
             this.dataGridView1.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);

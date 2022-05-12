@@ -148,10 +148,8 @@ namespace Windows.Forms
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.txtId.Text = "";
-            this.txtApellidos.Text = "";
             this.txtNombres.Text = "";
             this.txtDocumento.Text = "";
-            this.txtRazonSocial.Text = "";
             this.txtDireccion.Text = "";
             this.txtCelular.Text = "";
 

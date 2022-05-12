@@ -95,14 +95,6 @@ namespace Windows.Forms
                 //this.btnGuardar.Text = "Actualizar";
                 //this.btnGuardar.Enabled = true;                
             }
-
-            //frmContratosAddDetalle frm = new frmContratosAddDetalle();
-            //var result = frm.ShowDialog();
-            //if (result == DialogResult.OK)
-            //{
-            //    DetalleContratoEntity detalle = frm.detalle;
-            //    cargarEquipo(detalle);
-            //}
         }
 
         private void cargarEquipo(int idEquipo)
@@ -117,8 +109,10 @@ namespace Windows.Forms
             row.Cells["Codigo"].Value = equipo.Codigo;
             row.Cells["EquipoId"].Value = idEquipo;
             row.Cells["Equipo"].Value = equipo.Descripcion;
-            row.Cells["Monto"].Value = "1.0";
+            row.Cells["Monto"].Value = "";
 
+            row.Cells["FechaInicio"].Value = "05/11/2022";
+            row.Cells["FechaFin"].Value = "05/15/2022";
         }
 
         private void cargarLineaDetalle(DetalleContratoEntity detalle)

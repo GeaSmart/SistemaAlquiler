@@ -56,7 +56,7 @@ namespace Windows.Forms
                 Modelo = (this.cmbModelo.SelectedItem == null) ? "" : this.cmbModelo.SelectedItem.ToString(),
                 IsDisponible = this.rbtnSi.Checked ? true : false,
                 Imagen = Utils.Utils.ImageToByteArray(this.picImagen.Image),
-                Estado = (this.cmbEstado.SelectedItem == null) ? "" : this.cmbEstado.SelectedItem.ToString(),
+                Estado = (this.cmbEstado.SelectedItem == null) ? "DISPONIBLE" : this.cmbEstado.SelectedItem.ToString(),
             };
 
             var response = EquipoModel.Guardar(equipo);
