@@ -43,7 +43,7 @@ namespace Windows.Forms
 
             var contrato = new ContratoEntity
             {
-                ClienteId = 1,
+                ClienteId = Convert.ToInt32(this.cmbCliente.SelectedValue.ToString()),
                 DireccionObra = this.txtDireccionObra.Text,
                 Referencia = this.txtReferencia.Text,
                 Observaciones = this.txtObservaciones.Text,
@@ -55,7 +55,6 @@ namespace Windows.Forms
                 Detalles = listaDetalle
 
             };
-                        
 
             foreach(DataGridViewRow fila in this.dataGridView1.Rows)
             {
@@ -70,17 +69,27 @@ namespace Windows.Forms
                 listaDetalle.Add(detalle);
             }
 
-            var response = ContratoModel.Guardar(contrato);
-            if (response.Response)
+            try
             {
-                Id = contrato.Id;
-                MessageBox.Show($"El registro fue guardado con id {Id}");
-                this.btnImprimir.Enabled = true;
+                var response = ContratoModel.Guardar(contrato);
+
+                if (response.Response)
+                {
+                    Id = contrato.Id;
+                    MessageBox.Show($"El registro fue guardado con id {Id}");
+                    this.btnImprimir.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show(response.Message);
+                }
             }
-            else
+            catch(SystemException ex)
             {
-                MessageBox.Show(response.Message);
+                MessageBox.Show(ex.Message);
             }
+            
+
         }
 
         private void button8_Click(object sender, EventArgs e)

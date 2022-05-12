@@ -59,17 +59,23 @@ namespace Windows.Forms
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 33);
+            this.label8.Location = new System.Drawing.Point(30, 141);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(210, 25);
@@ -84,7 +90,7 @@ namespace Windows.Forms
             this.groupBox2.Controls.Add(this.txtReferencia);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.txtDireccionObra);
-            this.groupBox2.Location = new System.Drawing.Point(16, 92);
+            this.groupBox2.Location = new System.Drawing.Point(16, 196);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -155,7 +161,7 @@ namespace Windows.Forms
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(205, 772);
+            this.txtObservaciones.Location = new System.Drawing.Point(205, 876);
             this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
@@ -166,7 +172,7 @@ namespace Windows.Forms
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(30, 775);
+            this.label13.Location = new System.Drawing.Point(30, 879);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(156, 25);
@@ -182,7 +188,7 @@ namespace Windows.Forms
             this.groupBox3.Controls.Add(this.txtConceptoAdicional);
             this.groupBox3.Controls.Add(this.button8);
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(16, 300);
+            this.groupBox3.Location = new System.Drawing.Point(16, 404);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -335,7 +341,7 @@ namespace Windows.Forms
             // btnImprimir
             // 
             this.btnImprimir.Enabled = false;
-            this.btnImprimir.Location = new System.Drawing.Point(1056, 107);
+            this.btnImprimir.Location = new System.Drawing.Point(1056, 22);
             this.btnImprimir.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(159, 56);
@@ -346,7 +352,7 @@ namespace Windows.Forms
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(888, 107);
+            this.btnGuardar.Location = new System.Drawing.Point(888, 22);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(159, 56);
@@ -361,10 +367,10 @@ namespace Windows.Forms
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.btnImprimir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 928);
+            this.panel1.Location = new System.Drawing.Point(0, 1045);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1252, 209);
+            this.panel1.Size = new System.Drawing.Size(1252, 92);
             this.panel1.TabIndex = 7;
             // 
             // cmbCliente
@@ -378,17 +384,69 @@ namespace Windows.Forms
             "chile",
             "brasil",
             "parag"});
-            this.cmbCliente.Location = new System.Drawing.Point(256, 28);
+            this.cmbCliente.Location = new System.Drawing.Point(260, 138);
             this.cmbCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(517, 33);
             this.cmbCliente.TabIndex = 8;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(35, 41);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(129, 29);
+            this.radioButton1.TabIndex = 13;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "DNI/RUC";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(187, 41);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(118, 29);
+            this.radioButton2.TabIndex = 14;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Nombre";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(329, 40);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(340, 31);
+            this.textBox1.TabIndex = 15;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.radioButton2);
+            this.groupBox1.Location = new System.Drawing.Point(25, 25);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(762, 100);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Buscar cliente";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(831, 66);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(165, 40);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Crear nuevo";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1252, 1137);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtObservaciones);
@@ -409,6 +467,8 @@ namespace Windows.Forms
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,5 +504,10 @@ namespace Windows.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn FechaFin;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Label lblSumatoria;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
