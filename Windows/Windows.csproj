@@ -104,12 +104,6 @@
     <Compile Include="Forms\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frmContratosAddDetalle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmContratosAddDetalle.Designer.cs">
-      <DependentUpon>frmContratosAddDetalle.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\frmEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -188,9 +182,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmContratosAddDetalle.resx">
-      <DependentUpon>frmContratosAddDetalle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmEquipos.resx">
       <DependentUpon>frmEquipos.cs</DependentUpon>

@@ -39,8 +39,8 @@ namespace Windows.Forms
 
         private void button7_Click(object sender, EventArgs e)
         {
-            GuardarContrato();
-            Limpiar();
+            if (GuardarContrato())
+                Limpiar();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -90,8 +90,8 @@ namespace Windows.Forms
                 frmReporteContrato frm = new frmReporteContrato(Id);
                 frm.MdiParent = this.MdiParent;
                 frm.Show();
-            }
-            Limpiar();
+                Limpiar();
+            }            
         }
 
         private void dataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)

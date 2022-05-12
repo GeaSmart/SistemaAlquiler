@@ -30,7 +30,7 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContratos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -65,6 +65,7 @@ namespace Windows.Forms
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblExiste = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
@@ -76,7 +77,7 @@ namespace Windows.Forms
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(30, 141);
+            this.label8.Location = new System.Drawing.Point(38, 100);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(210, 25);
@@ -295,8 +296,8 @@ namespace Windows.Forms
             // FechaInicio
             // 
             this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle9.NullValue = null;
-            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.NullValue = null;
+            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle5;
             this.FechaInicio.HeaderText = "Fecha de inicio";
             this.FechaInicio.MinimumWidth = 6;
             this.FechaInicio.Name = "FechaInicio";
@@ -379,7 +380,7 @@ namespace Windows.Forms
             "chile",
             "brasil",
             "parag"});
-            this.cmbCliente.Location = new System.Drawing.Point(260, 141);
+            this.cmbCliente.Location = new System.Drawing.Point(268, 100);
             this.cmbCliente.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmbCliente.Name = "cmbCliente";
             this.cmbCliente.Size = new System.Drawing.Size(517, 33);
@@ -388,7 +389,7 @@ namespace Windows.Forms
             // 
             // txtBuscarCliente
             // 
-            this.txtBuscarCliente.Location = new System.Drawing.Point(34, 41);
+            this.txtBuscarCliente.Location = new System.Drawing.Point(268, 54);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(340, 31);
             this.txtBuscarCliente.TabIndex = 15;
@@ -396,23 +397,28 @@ namespace Windows.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.lblExiste);
+            this.groupBox1.Controls.Add(this.cmbCliente);
             this.groupBox1.Controls.Add(this.txtBuscarCliente);
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(25, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1322, 100);
+            this.groupBox1.Size = new System.Drawing.Size(1322, 163);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Buscar cliente";
+            this.groupBox1.Text = "Datos del cliente";
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Location = new System.Drawing.Point(1135, 36);
+            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
+            this.btnNuevo.Location = new System.Drawing.Point(1141, 34);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(165, 40);
+            this.btnNuevo.Size = new System.Drawing.Size(159, 103);
             this.btnNuevo.TabIndex = 17;
-            this.btnNuevo.Text = "Crear nuevo";
+            this.btnNuevo.Text = "Crear nuevo cliente";
+            this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Visible = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -422,7 +428,7 @@ namespace Windows.Forms
             this.lblExiste.AutoSize = true;
             this.lblExiste.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExiste.ForeColor = System.Drawing.Color.Red;
-            this.lblExiste.Location = new System.Drawing.Point(403, 44);
+            this.lblExiste.Location = new System.Drawing.Point(795, 101);
             this.lblExiste.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblExiste.Name = "lblExiste";
             this.lblExiste.Size = new System.Drawing.Size(19, 29);
@@ -441,6 +447,16 @@ namespace Windows.Forms
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(100, 57);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 25);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Buscar cliente";
+            // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -448,13 +464,11 @@ namespace Windows.Forms
             this.ClientSize = new System.Drawing.Size(1369, 1130);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.cmbCliente);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label8);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimumSize = new System.Drawing.Size(700, 800);
             this.Name = "frmContratos";
@@ -510,5 +524,6 @@ namespace Windows.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label label1;
     }
 }
