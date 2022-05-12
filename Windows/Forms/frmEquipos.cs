@@ -21,19 +21,18 @@ namespace Windows.Forms
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            this.txtId.Text = "";
             this.txtCodigo.Text = "";
             this.cmbTipo.SelectedIndex = -1;
             this.txtDescripcion.Text = "";
             this.txtSerie.Text = "";
-            this.cmbMarca.SelectedIndex = -1;
-            this.cmbModelo.SelectedIndex = -1;
+            this.txtMarca.Text = "";
+            this.txtModelo.Text = "";
             this.picImagen.Image = null;
-            this.cmbEstado.SelectedIndex = -1;
-
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Enabled = true;
             this.btnEliminar.Enabled = false;
-
+            this.nudPrecioBaseDia.Value = 0;
         }
 
         private void frmEquipos_Load(object sender, EventArgs e)
@@ -52,11 +51,10 @@ namespace Windows.Forms
                 Tipo = (this.cmbTipo.SelectedItem == null) ? "" : this.cmbTipo.SelectedItem.ToString(),
                 Descripcion = this.txtDescripcion.Text,
                 Serie = this.txtSerie.Text,
-                Marca = (this.cmbMarca.SelectedItem == null) ? "" : this.cmbMarca.SelectedItem.ToString(),
-                Modelo = (this.cmbModelo.SelectedItem == null) ? "" : this.cmbModelo.SelectedItem.ToString(),
-                IsDisponible = this.rbtnSi.Checked ? true : false,
+                Marca = this.txtMarca.Text,
+                Modelo = this.txtModelo.Text,
                 Imagen = Utils.Utils.ImageToByteArray(this.picImagen.Image),
-                Estado = (this.cmbEstado.SelectedItem == null) ? "DISPONIBLE" : this.cmbEstado.SelectedItem.ToString(),
+                PrecioBaseDia=this.nudPrecioBaseDia.Value
             };
 
             var response = EquipoModel.Guardar(equipo);
@@ -111,12 +109,10 @@ namespace Windows.Forms
             this.cmbTipo.SelectedItem = equipo.Tipo;
             this.txtDescripcion.Text = equipo.Descripcion;
             this.txtSerie.Text = equipo.Serie;
-            this.cmbMarca.SelectedItem = equipo.Marca;
-            this.cmbModelo.SelectedItem = equipo.Modelo;
-            this.rbtnSi.Checked = equipo.IsDisponible;
-            this.rbtnNo.Checked = !equipo.IsDisponible;
+            this.txtMarca.Text = equipo.Marca;
+            this.txtModelo.Text = equipo.Modelo;
             this.picImagen.Image = Utils.Utils.ByteArrayToImage(equipo.Imagen);
-            this.cmbEstado.SelectedItem = equipo.Estado;
+            this.nudPrecioBaseDia.Value = equipo.PrecioBaseDia;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

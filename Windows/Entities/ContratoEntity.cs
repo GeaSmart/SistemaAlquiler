@@ -33,6 +33,10 @@ namespace Windows.Entities
                 
         public decimal MontoAdicional { get; set; }
         public string Contenido { get; set; }
+        [StringLength(15)]
+        public string Estado { get; set; }
+        [StringLength(175)]
+        public string ComentarioCierre { get; set; }
 
         //Propiedades de navegación
         public ClienteEntity Cliente { get; set; }

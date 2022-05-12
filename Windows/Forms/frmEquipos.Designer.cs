@@ -33,21 +33,14 @@ namespace Windows.Forms
             this.btnCarga = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cmbEstado = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.rbtnNo = new System.Windows.Forms.RadioButton();
-            this.rbtnSi = new System.Windows.Forms.RadioButton();
-            this.cmbModelo = new System.Windows.Forms.ComboBox();
-            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.picImagen = new System.Windows.Forms.PictureBox();
             this.txtSerie = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,30 +48,32 @@ namespace Windows.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nudPrecioBaseDia = new System.Windows.Forms.NumericUpDown();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMarca);
+            this.groupBox1.Controls.Add(this.txtModelo);
+            this.groupBox1.Controls.Add(this.nudPrecioBaseDia);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.btnCarga);
             this.groupBox1.Controls.Add(this.txtId);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.cmbEstado);
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnNuevo);
             this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnGuardar);
             this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.rbtnNo);
-            this.groupBox1.Controls.Add(this.rbtnSi);
-            this.groupBox1.Controls.Add(this.cmbModelo);
-            this.groupBox1.Controls.Add(this.cmbMarca);
             this.groupBox1.Controls.Add(this.picImagen);
             this.groupBox1.Controls.Add(this.txtSerie);
             this.groupBox1.Controls.Add(this.label3);
@@ -125,32 +120,6 @@ namespace Windows.Forms
             this.label9.TabIndex = 31;
             this.label9.Text = "Id";
             this.label9.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(122, 378);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(79, 25);
-            this.label8.TabIndex = 30;
-            this.label8.Text = "Estado";
-            this.label8.Visible = false;
-            // 
-            // cmbEstado
-            // 
-            this.cmbEstado.FormattingEnabled = true;
-            this.cmbEstado.Items.AddRange(new object[] {
-            "DISPONIBLE",
-            "EN CONTRATO",
-            "DADO DE BAJA",
-            "EN MANTENIMIENTO"});
-            this.cmbEstado.Location = new System.Drawing.Point(232, 373);
-            this.cmbEstado.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbEstado.Name = "cmbEstado";
-            this.cmbEstado.Size = new System.Drawing.Size(412, 33);
-            this.cmbEstado.TabIndex = 29;
-            this.cmbEstado.Visible = false;
             // 
             // btnEliminar
             // 
@@ -207,17 +176,6 @@ namespace Windows.Forms
             this.txtCodigo.Size = new System.Drawing.Size(217, 31);
             this.txtCodigo.TabIndex = 17;
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 333);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(183, 25);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "¿Está disponible?";
-            this.label7.Visible = false;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -247,57 +205,6 @@ namespace Windows.Forms
             this.label4.Size = new System.Drawing.Size(132, 25);
             this.label4.TabIndex = 12;
             this.label4.Text = "Nro.de Serie";
-            // 
-            // rbtnNo
-            // 
-            this.rbtnNo.AutoSize = true;
-            this.rbtnNo.Location = new System.Drawing.Point(303, 331);
-            this.rbtnNo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rbtnNo.Name = "rbtnNo";
-            this.rbtnNo.Size = new System.Drawing.Size(74, 29);
-            this.rbtnNo.TabIndex = 11;
-            this.rbtnNo.TabStop = true;
-            this.rbtnNo.Text = "NO";
-            this.rbtnNo.UseVisualStyleBackColor = true;
-            this.rbtnNo.Visible = false;
-            // 
-            // rbtnSi
-            // 
-            this.rbtnSi.AutoSize = true;
-            this.rbtnSi.Checked = true;
-            this.rbtnSi.Location = new System.Drawing.Point(232, 331);
-            this.rbtnSi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rbtnSi.Name = "rbtnSi";
-            this.rbtnSi.Size = new System.Drawing.Size(62, 29);
-            this.rbtnSi.TabIndex = 10;
-            this.rbtnSi.TabStop = true;
-            this.rbtnSi.Text = "SI";
-            this.rbtnSi.UseVisualStyleBackColor = true;
-            this.rbtnSi.Visible = false;
-            // 
-            // cmbModelo
-            // 
-            this.cmbModelo.FormattingEnabled = true;
-            this.cmbModelo.Items.AddRange(new object[] {
-            "ARTICUNO E43",
-            "SHELL M22"});
-            this.cmbModelo.Location = new System.Drawing.Point(232, 281);
-            this.cmbModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbModelo.Name = "cmbModelo";
-            this.cmbModelo.Size = new System.Drawing.Size(412, 33);
-            this.cmbModelo.TabIndex = 9;
-            // 
-            // cmbMarca
-            // 
-            this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Items.AddRange(new object[] {
-            "MAKITA",
-            "BOSCH"});
-            this.cmbMarca.Location = new System.Drawing.Point(232, 234);
-            this.cmbMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(412, 33);
-            this.cmbMarca.TabIndex = 8;
             // 
             // picImagen
             // 
@@ -370,6 +277,45 @@ namespace Windows.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(42, 327);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 25);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Precio base/dia";
+            // 
+            // nudPrecioBaseDia
+            // 
+            this.nudPrecioBaseDia.DecimalPlaces = 2;
+            this.nudPrecioBaseDia.Location = new System.Drawing.Point(232, 327);
+            this.nudPrecioBaseDia.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.nudPrecioBaseDia.Name = "nudPrecioBaseDia";
+            this.nudPrecioBaseDia.Size = new System.Drawing.Size(120, 31);
+            this.nudPrecioBaseDia.TabIndex = 36;
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Location = new System.Drawing.Point(232, 280);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(412, 31);
+            this.txtModelo.TabIndex = 37;
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.Location = new System.Drawing.Point(232, 236);
+            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(412, 31);
+            this.txtMarca.TabIndex = 38;
+            // 
             // frmEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -383,6 +329,7 @@ namespace Windows.Forms
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -390,14 +337,9 @@ namespace Windows.Forms
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton rbtnNo;
-        private System.Windows.Forms.RadioButton rbtnSi;
-        private System.Windows.Forms.ComboBox cmbModelo;
-        private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.PictureBox picImagen;
         private System.Windows.Forms.TextBox txtSerie;
         private System.Windows.Forms.Label label3;
@@ -410,10 +352,12 @@ namespace Windows.Forms
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cmbEstado;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnCarga;
+        private System.Windows.Forms.NumericUpDown nudPrecioBaseDia;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.TextBox txtModelo;
     }
 }

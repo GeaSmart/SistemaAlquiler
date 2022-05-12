@@ -35,12 +35,8 @@ namespace Windows.Entities
         [StringLength(30)]
         [Required]
         public string Modelo { get; set; }
-        public bool IsDisponible { get; set; }
         public byte[] Imagen { get; set; }
-
-        [StringLength(15)]
-        [Required]
-        public string Estado { get; set; }
+        public decimal PrecioBaseDia { get; set; }
 
         //Propiedades de navegación
         public List<DetalleContratoEntity> Detalles { get; set; }

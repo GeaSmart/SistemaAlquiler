@@ -148,6 +148,14 @@
     <Compile Include="Migrations\202205111915017_contenido-contrato.designer.cs">
       <DependentUpon>202205111915017_contenido-contrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205121441430_equipo-fields-update.cs" />
+    <Compile Include="Migrations\202205121441430_equipo-fields-update.designer.cs">
+      <DependentUpon>202205121441430_equipo-fields-update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205121522350_contracts-fields.cs" />
+    <Compile Include="Migrations\202205121522350_contracts-fields.designer.cs">
+      <DependentUpon>202205121522350_contracts-fields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
     <Compile Include="Model\ContratoModel.cs" />
@@ -203,6 +211,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205111915017_contenido-contrato.resx">
       <DependentUpon>202205111915017_contenido-contrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121441430_equipo-fields-update.resx">
+      <DependentUpon>202205121441430_equipo-fields-update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205121522350_contracts-fields.resx">
+      <DependentUpon>202205121522350_contracts-fields.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
