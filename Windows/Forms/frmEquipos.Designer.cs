@@ -30,6 +30,9 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtModelo = new System.Windows.Forms.TextBox();
+            this.nudPrecioBaseDia = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.btnCarga = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -48,18 +51,15 @@ namespace Windows.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.nudPrecioBaseDia = new System.Windows.Forms.NumericUpDown();
-            this.txtModelo = new System.Windows.Forms.TextBox();
-            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtMarca);
+            this.groupBox1.Controls.Add(this.cmbMarca);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.nudPrecioBaseDia);
             this.groupBox1.Controls.Add(this.label7);
@@ -89,6 +89,37 @@ namespace Windows.Forms
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del equipo";
+            // 
+            // txtModelo
+            // 
+            this.txtModelo.Location = new System.Drawing.Point(232, 280);
+            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtModelo.Name = "txtModelo";
+            this.txtModelo.Size = new System.Drawing.Size(412, 31);
+            this.txtModelo.TabIndex = 37;
+            // 
+            // nudPrecioBaseDia
+            // 
+            this.nudPrecioBaseDia.DecimalPlaces = 2;
+            this.nudPrecioBaseDia.Location = new System.Drawing.Point(232, 327);
+            this.nudPrecioBaseDia.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.nudPrecioBaseDia.Name = "nudPrecioBaseDia";
+            this.nudPrecioBaseDia.Size = new System.Drawing.Size(120, 31);
+            this.nudPrecioBaseDia.TabIndex = 36;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(42, 327);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 25);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Precio base/dia";
             // 
             // btnCarga
             // 
@@ -277,44 +308,16 @@ namespace Windows.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo";
             // 
-            // label7
+            // cmbMarca
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(42, 327);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(161, 25);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Precio base/dia";
-            // 
-            // nudPrecioBaseDia
-            // 
-            this.nudPrecioBaseDia.DecimalPlaces = 2;
-            this.nudPrecioBaseDia.Location = new System.Drawing.Point(232, 327);
-            this.nudPrecioBaseDia.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nudPrecioBaseDia.Name = "nudPrecioBaseDia";
-            this.nudPrecioBaseDia.Size = new System.Drawing.Size(120, 31);
-            this.nudPrecioBaseDia.TabIndex = 36;
-            // 
-            // txtModelo
-            // 
-            this.txtModelo.Location = new System.Drawing.Point(232, 280);
-            this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtModelo.Name = "txtModelo";
-            this.txtModelo.Size = new System.Drawing.Size(412, 31);
-            this.txtModelo.TabIndex = 37;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(232, 236);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(412, 31);
-            this.txtMarca.TabIndex = 38;
+            this.cmbMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(232, 236);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(412, 33);
+            this.cmbMarca.TabIndex = 39;
             // 
             // frmEquipos
             // 
@@ -328,8 +331,8 @@ namespace Windows.Forms
             this.Load += new System.EventHandler(this.frmEquipos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImagen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -357,7 +360,7 @@ namespace Windows.Forms
         private System.Windows.Forms.Button btnCarga;
         private System.Windows.Forms.NumericUpDown nudPrecioBaseDia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtModelo;
+        private System.Windows.Forms.ComboBox cmbMarca;
     }
 }

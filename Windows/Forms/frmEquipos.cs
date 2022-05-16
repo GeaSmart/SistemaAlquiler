@@ -26,18 +26,33 @@ namespace Windows.Forms
             this.cmbTipo.SelectedIndex = -1;
             this.txtDescripcion.Text = "";
             this.txtSerie.Text = "";
-            this.txtMarca.Text = "";
+            this.cmbMarca.Text = "";
             this.txtModelo.Text = "";
             this.picImagen.Image = null;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Enabled = true;
             this.btnEliminar.Enabled = false;
             this.nudPrecioBaseDia.Value = 0;
+
+            cargarMarcas();
         }
 
         private void frmEquipos_Load(object sender, EventArgs e)
         {
             this.btnNuevo.PerformClick();
+            cargarMarcas();
+        }
+
+        private void cargarMarcas()
+        {
+            var listadoMarcas = ConfigModel.Obtener("MARCA").Data;
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+
+            foreach (ConfigEntity item in listadoMarcas)
+            {
+                coleccion.Add(item.Value);
+            }
+            this.cmbMarca.AutoCompleteCustomSource = coleccion;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -51,7 +66,7 @@ namespace Windows.Forms
                 Tipo = (this.cmbTipo.SelectedItem == null) ? "" : this.cmbTipo.SelectedItem.ToString(),
                 Descripcion = this.txtDescripcion.Text,
                 Serie = this.txtSerie.Text,
-                Marca = this.txtMarca.Text,
+                Marca = this.cmbMarca.Text,
                 Modelo = this.txtModelo.Text,
                 Imagen = Utils.Utils.ImageToByteArray(this.picImagen.Image),
                 PrecioBaseDia=this.nudPrecioBaseDia.Value
@@ -61,12 +76,19 @@ namespace Windows.Forms
             if (response.Response)
             {
                 MessageBox.Show("El registro fue guardado");
+                procesarMarcas(new ConfigEntity { Value = equipo.Marca });
                 this.btnNuevo.PerformClick();
             }
             else
             {
                 MessageBox.Show(response.Message);
             }
+        }
+
+        void procesarMarcas(ConfigEntity entidad)
+        {
+            ConfigModel.GuardarMarca(entidad);
+            ConfigModel.EliminarMarcasDuplicadas();
         }
 
         private void btnCarga_Click(object sender, EventArgs e)
@@ -109,7 +131,7 @@ namespace Windows.Forms
             this.cmbTipo.SelectedItem = equipo.Tipo;
             this.txtDescripcion.Text = equipo.Descripcion;
             this.txtSerie.Text = equipo.Serie;
-            this.txtMarca.Text = equipo.Marca;
+            this.cmbMarca.Text = equipo.Marca;
             this.txtModelo.Text = equipo.Modelo;
             this.picImagen.Image = Utils.Utils.ByteArrayToImage(equipo.Imagen);
             this.nudPrecioBaseDia.Value = equipo.PrecioBaseDia;
