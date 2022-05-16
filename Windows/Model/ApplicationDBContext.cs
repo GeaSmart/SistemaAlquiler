@@ -22,6 +22,7 @@ namespace Windows.Model
         public DbSet<ContratoEntity> Contratos { get; set; }
         public DbSet<DetalleContratoEntity> Detalles { get; set; }
         public DbSet<EquipoEntity> Equipos { get; set; }
+        public DbSet<UserEntity> Usuarios { get; set; }
 
     }
 }

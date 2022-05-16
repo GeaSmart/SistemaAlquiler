@@ -74,6 +74,7 @@
     <Compile Include="Entities\ContratoEntity.cs" />
     <Compile Include="Entities\DetalleContratoEntity.cs" />
     <Compile Include="Entities\EquipoEntity.cs" />
+    <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +155,22 @@
     <Compile Include="Migrations\202205121638548_contrato-fields-remove.designer.cs">
       <DependentUpon>202205121638548_contrato-fields-remove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202205162159163_user-entity.cs" />
+    <Compile Include="Migrations\202205162159163_user-entity.designer.cs">
+      <DependentUpon>202205162159163_user-entity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205162200502_user-entity2.cs" />
+    <Compile Include="Migrations\202205162200502_user-entity2.designer.cs">
+      <DependentUpon>202205162200502_user-entity2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205162203107_user-entity3.cs" />
+    <Compile Include="Migrations\202205162203107_user-entity3.designer.cs">
+      <DependentUpon>202205162203107_user-entity3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202205162210548_user-entity4.cs" />
+    <Compile Include="Migrations\202205162210548_user-entity4.designer.cs">
+      <DependentUpon>202205162210548_user-entity4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\ApplicationDBContext.cs" />
     <Compile Include="Model\ConfigModel.cs" />
@@ -216,6 +233,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202205121638548_contrato-fields-remove.resx">
       <DependentUpon>202205121638548_contrato-fields-remove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205162159163_user-entity.resx">
+      <DependentUpon>202205162159163_user-entity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205162200502_user-entity2.resx">
+      <DependentUpon>202205162200502_user-entity2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205162203107_user-entity3.resx">
+      <DependentUpon>202205162203107_user-entity3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202205162210548_user-entity4.resx">
+      <DependentUpon>202205162210548_user-entity4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
