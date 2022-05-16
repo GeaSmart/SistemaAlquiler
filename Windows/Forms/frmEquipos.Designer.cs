@@ -1,4 +1,6 @@
 ﻿
+using Windows.Utils;
+
 namespace Windows.Forms
 {
     partial class frmEquipos
@@ -30,6 +32,7 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.nudPrecioBaseDia = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
@@ -51,7 +54,6 @@ namespace Windows.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
@@ -59,7 +61,7 @@ namespace Windows.Forms
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbMarca);
+            this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.nudPrecioBaseDia);
             this.groupBox1.Controls.Add(this.label7);
@@ -89,6 +91,16 @@ namespace Windows.Forms
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del equipo";
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtMarca.Location = new System.Drawing.Point(232, 236);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(412, 31);
+            this.txtMarca.TabIndex = 40;
             // 
             // txtModelo
             // 
@@ -308,17 +320,6 @@ namespace Windows.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo";
             // 
-            // cmbMarca
-            // 
-            this.cmbMarca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmbMarca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(232, 236);
-            this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(412, 33);
-            this.cmbMarca.TabIndex = 39;
-            // 
             // frmEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -361,6 +362,6 @@ namespace Windows.Forms
         private System.Windows.Forms.NumericUpDown nudPrecioBaseDia;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtModelo;
-        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.TextBox txtMarca;
     }
 }
