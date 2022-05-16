@@ -72,5 +72,11 @@ namespace Windows.Forms
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            frmLogin login = new frmLogin();
+            login.ShowDialog();
+        }
     }
 }
