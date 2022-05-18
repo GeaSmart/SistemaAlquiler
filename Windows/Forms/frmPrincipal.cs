@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Windows.Forms
 {
-    public partial class frmPrincipal : Form
+    public partial class frmPrincipal : DevComponents.DotNetBar.Metro.MetroForm
     {
         public frmPrincipal()
         {
             InitializeComponent();
+
+            this.WindowState = FormWindowState.Maximized;
+            this.ShowInTaskbar = true;
+
+            this.menuStrip1.Enabled = false;
+            this.toolStrip1.Enabled = false;
+            
+            frmLogin login = new frmLogin(this);
+            login.MdiParent = this;
+            //login.Location =
         }
 
         private void contratosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,8 +85,8 @@ namespace Windows.Forms
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            frmLogin login = new frmLogin();
-            login.ShowDialog();
+            //frmLogin login = new frmLogin(this);
+            //login.ShowDialog();
         }
     }
 }

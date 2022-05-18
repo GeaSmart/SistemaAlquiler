@@ -12,7 +12,7 @@ using Windows.Model;
 
 namespace Windows.Forms
 {
-    public partial class frmClientes : Form
+    public partial class frmClientes : DevComponents.DotNetBar.Metro.MetroForm
     {
         ApplicationDBContext context = new ApplicationDBContext();
         public frmClientes()

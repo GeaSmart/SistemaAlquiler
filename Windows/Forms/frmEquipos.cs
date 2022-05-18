@@ -12,7 +12,7 @@ using Windows.Model;
 
 namespace Windows.Forms
 {
-    public partial class frmEquipos : Form
+    public partial class frmEquipos : DevComponents.DotNetBar.Metro.MetroForm
     {
         public frmEquipos()
         {

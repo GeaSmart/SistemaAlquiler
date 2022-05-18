@@ -13,7 +13,7 @@ using Windows.Model;
 
 namespace Windows.Forms
 {
-    public partial class frmReporteContrato : Form
+    public partial class frmReporteContrato : DevComponents.DotNetBar.Metro.MetroForm
     {
         int _Id;
         public frmReporteContrato(int Id)

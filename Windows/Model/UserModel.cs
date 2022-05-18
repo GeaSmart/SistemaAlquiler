@@ -20,10 +20,11 @@ namespace Windows.Model
                 var pw = HashHelper.SHA1(credenciales.Password);
                 using (ApplicationDBContext context = new ApplicationDBContext())
                 {
-                    var existe = context.Usuarios.Any(x => x.Username == credenciales.Username && x.Password == pw);
-                    if (existe)
+                    var usuario = context.Usuarios.FirstOrDefault(x => x.Username == credenciales.Username && x.Password == pw);
+                    if (usuario != null)
                     {
                         response.Response = true;
+                        response.Data = new UserEntity { Username = usuario.Username, IsAdmin = usuario.IsAdmin, Id = usuario.Id };
                     }
                 }
             }

@@ -11,7 +11,7 @@ using Windows.Model;
 
 namespace Windows.Forms
 {
-    public partial class frmBusquedaEquipo : Form
+    public partial class frmBusquedaEquipo : DevComponents.DotNetBar.Metro.MetroForm
     {
         public int Id { get; set; }
 
