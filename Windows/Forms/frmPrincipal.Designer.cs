@@ -40,6 +40,7 @@ namespace Windows.Forms
             this.contratosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.txtUsuario = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.txtIsAdmin = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -49,7 +50,8 @@ namespace Windows.Forms
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.administraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cambiarContraseñaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -62,11 +64,12 @@ namespace Windows.Forms
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mantenedoresToolStripMenuItem,
             this.operacionesToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.administraciónToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(1947, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1947, 44);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,20 +79,20 @@ namespace Windows.Forms
             this.equiposToolStripMenuItem,
             this.clientesToolStripMenuItem});
             this.mantenedoresToolStripMenuItem.Name = "mantenedoresToolStripMenuItem";
-            this.mantenedoresToolStripMenuItem.Size = new System.Drawing.Size(190, 36);
+            this.mantenedoresToolStripMenuItem.Size = new System.Drawing.Size(190, 38);
             this.mantenedoresToolStripMenuItem.Text = "Mantenedores";
             // 
             // equiposToolStripMenuItem
             // 
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(234, 44);
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.equiposToolStripMenuItem.Text = "Equipos";
             this.equiposToolStripMenuItem.Click += new System.EventHandler(this.equiposToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(234, 44);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -98,7 +101,7 @@ namespace Windows.Forms
             this.operacionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contratosToolStripMenuItem});
             this.operacionesToolStripMenuItem.Name = "operacionesToolStripMenuItem";
-            this.operacionesToolStripMenuItem.Size = new System.Drawing.Size(168, 36);
+            this.operacionesToolStripMenuItem.Size = new System.Drawing.Size(168, 38);
             this.operacionesToolStripMenuItem.Text = "Operaciones";
             // 
             // contratosToolStripMenuItem
@@ -113,7 +116,7 @@ namespace Windows.Forms
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.contratosToolStripMenuItem1});
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(128, 36);
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(128, 38);
             this.reportesToolStripMenuItem.Text = "Reportes";
             // 
             // contratosToolStripMenuItem1
@@ -145,6 +148,12 @@ namespace Windows.Forms
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(20, 32);
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(21, 32);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
             // txtIsAdmin
             // 
             this.txtIsAdmin.Name = "txtIsAdmin";
@@ -173,7 +182,7 @@ namespace Windows.Forms
             this.toolStripButton3,
             this.toolStripSeparator1,
             this.toolStripButton4});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 42);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 44);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.toolStrip1.Size = new System.Drawing.Size(1947, 42);
@@ -229,11 +238,21 @@ namespace Windows.Forms
             this.toolStripButton4.Text = "toolStripButton4";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
-            // toolStripStatusLabel1
+            // administraciónToolStripMenuItem
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(21, 32);
-            this.toolStripStatusLabel1.Text = "|";
+            this.administraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cambiarContraseñaToolStripMenuItem});
+            this.administraciónToolStripMenuItem.Name = "administraciónToolStripMenuItem";
+            this.administraciónToolStripMenuItem.Size = new System.Drawing.Size(194, 38);
+            this.administraciónToolStripMenuItem.Text = "Administración";
+            this.administraciónToolStripMenuItem.Visible = false;
+            // 
+            // cambiarContraseñaToolStripMenuItem
+            // 
+            this.cambiarContraseñaToolStripMenuItem.Name = "cambiarContraseñaToolStripMenuItem";
+            this.cambiarContraseñaToolStripMenuItem.Size = new System.Drawing.Size(360, 44);
+            this.cambiarContraseñaToolStripMenuItem.Text = "Cambiar contraseña";
+            this.cambiarContraseñaToolStripMenuItem.Click += new System.EventHandler(this.cambiarContraseñaToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -284,5 +303,7 @@ namespace Windows.Forms
         public System.Windows.Forms.ToolStripStatusLabel txtUsuario;
         public System.Windows.Forms.ToolStripStatusLabel txtIsAdmin;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem cambiarContraseñaToolStripMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem administraciónToolStripMenuItem;
     }
 }

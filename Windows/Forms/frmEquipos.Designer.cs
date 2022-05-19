@@ -55,6 +55,7 @@ namespace Windows.Forms
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnRefrescarCodigo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
@@ -62,6 +63,7 @@ namespace Windows.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRefrescarCodigo);
             this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Controls.Add(this.txtModelo);
@@ -242,7 +244,8 @@ namespace Windows.Forms
             this.txtCodigo.Location = new System.Drawing.Point(641, 93);
             this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(243, 43);
+            this.txtCodigo.ReadOnly = true;
+            this.txtCodigo.Size = new System.Drawing.Size(187, 43);
             this.txtCodigo.TabIndex = 17;
             // 
             // label6
@@ -332,6 +335,16 @@ namespace Windows.Forms
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo";
             // 
+            // btnRefrescarCodigo
+            // 
+            this.btnRefrescarCodigo.Image = ((System.Drawing.Image)(resources.GetObject("btnRefrescarCodigo.Image")));
+            this.btnRefrescarCodigo.Location = new System.Drawing.Point(835, 92);
+            this.btnRefrescarCodigo.Name = "btnRefrescarCodigo";
+            this.btnRefrescarCodigo.Size = new System.Drawing.Size(49, 44);
+            this.btnRefrescarCodigo.TabIndex = 42;
+            this.btnRefrescarCodigo.UseVisualStyleBackColor = true;
+            this.btnRefrescarCodigo.Click += new System.EventHandler(this.btnRefrescarCodigo_Click);
+            // 
             // frmEquipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -376,5 +389,6 @@ namespace Windows.Forms
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtTipo;
+        private System.Windows.Forms.Button btnRefrescarCodigo;
     }
 }

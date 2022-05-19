@@ -40,6 +40,7 @@ namespace Windows.Forms
 
                     this.principal.txtUsuario.Text = response.Username;
                     this.principal.txtIsAdmin.Text = response.IsAdmin == true ? "Admin" : "User";
+                    this.principal.administraciónToolStripMenuItem.Visible = response.IsAdmin;
                     this.Close();
                 }
                 else

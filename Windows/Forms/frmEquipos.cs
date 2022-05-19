@@ -18,7 +18,7 @@ namespace Windows.Forms
         {
             InitializeComponent();
         }
-
+        bool isSearchMode = true;
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             this.txtId.Text = "";
@@ -35,6 +35,7 @@ namespace Windows.Forms
             this.nudPrecioBaseDia.Value = 0;
 
             cargarMarcas();
+            isSearchMode = false;
         }
 
         private void frmEquipos_Load(object sender, EventArgs e)
@@ -91,6 +92,9 @@ namespace Windows.Forms
                 procesarTipos(new ConfigEntity { Value = equipo.Tipo });
                 MessageBox.Show("El registro fue guardado");
                 this.btnNuevo.PerformClick();
+                isSearchMode = false;
+                cargarMarcas();
+                cargarTipos();
             }
             else
             {
@@ -134,10 +138,11 @@ namespace Windows.Forms
             if (result == DialogResult.OK)
             {
                 int val = busqueda.Id;
+                isSearchMode = true;
                 CargarEquipo(val);
                 this.btnGuardar.Text = "Actualizar";
                 this.btnGuardar.Enabled = true;
-                this.btnEliminar.Enabled = true;
+                this.btnEliminar.Enabled = true;                
             }
         }
 
@@ -173,19 +178,22 @@ namespace Windows.Forms
 
         private void txtTipo_TextChanged(object sender, EventArgs e)
         {
-            if (this.txtTipo.Text.Length >= 3)
+            if (!isSearchMode)
             {
-                this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId();
-            }
-            else
-            {
-                this.txtCodigo.Text = string.Empty;
+                if (this.txtTipo.Text.Length >= 3)
+                {
+                    this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId(this.txtTipo.Text);
+                }
+                else
+                {
+                    this.txtCodigo.Text = string.Empty;
+                }
             }
         }
 
-        private string getLastId()
+        private string getLastId(string tipo)
         {
-            var response = (ConfigModel.GetLastId() + 1).ToString();
+            var response = (ConfigModel.GetLastId(tipo) + 1).ToString();
 
             switch (response.Length)
             {
@@ -197,6 +205,11 @@ namespace Windows.Forms
                     break;
             }
             return response;
+        }
+
+        private void btnRefrescarCodigo_Click(object sender, EventArgs e)
+        {
+            this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId(this.txtTipo.Text);
         }
     }
 }

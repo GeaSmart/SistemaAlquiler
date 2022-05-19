@@ -195,7 +195,7 @@ namespace Windows.Model
             return response;
         }
 
-        public static int GetLastId()
+        public static int GetLastId(string tipo)
         {
             var response = 0;
             
@@ -203,7 +203,7 @@ namespace Windows.Model
             {
                 using (ApplicationDBContext context = new ApplicationDBContext())
                 {
-                    response = context.Equipos.Count();                    
+                    response = context.Equipos.Where(x => x.Tipo.Substring(0,3) == tipo.Substring(0,3)).OrderByDescending(x => x.Id).Take(1).Select(x => x.Id).SingleOrDefault();
                 }
             }
             catch (DbEntityValidationException ex)
@@ -220,6 +220,7 @@ namespace Windows.Model
             }
             catch (SystemException ex)
             {
+                response = 0;
                 //response.Message += "\r\n" + ex.Message;
             }
             return response;

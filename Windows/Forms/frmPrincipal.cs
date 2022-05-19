@@ -88,5 +88,12 @@ namespace Windows.Forms
             //frmLogin login = new frmLogin(this);
             //login.ShowDialog();
         }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambiarContraseña frm = new frmCambiarContraseña();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
