@@ -33,13 +33,7 @@ namespace Windows.Forms
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            if (this.dgvData.RowCount > 0)
-            {
-                var x = this.dgvData.CurrentRow.Cells["id"].Value.ToString();
-                this.Id = Convert.ToInt32(x);
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
+
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -55,6 +49,55 @@ namespace Windows.Forms
                     x.Documento.Contains(this.txtBusqueda.Text)
             ).ToList();
             this.dgvData.DataSource = listado;
+            this.txtBusqueda.Select();
+        }
+
+        private void btnOk_Click_1(object sender, EventArgs e)
+        {
+            if (this.dgvData.RowCount > 0)
+            {
+                var x = this.dgvData.SelectedRows[0].Cells["id"].Value.ToString();
+                this.Id = Convert.ToInt32(x);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (this.dgvData.RowCount > 0)
+            {
+                int nRow = this.dgvData.SelectedRows[0].Index;
+                if (e.KeyCode == Keys.Down)
+                {
+                    if (nRow < this.dgvData.RowCount - 1)
+                    {
+                        this.dgvData.Rows[nRow].Selected = false;
+                        this.dgvData.Rows[++nRow].Selected = true;
+                    }
+                }
+                if (e.KeyCode == Keys.Up)
+                {
+                    if (nRow > 0)
+                    {
+                        this.dgvData.Rows[nRow].Selected = false;
+                        this.dgvData.Rows[--nRow].Selected = true;
+                    }
+                }
+                if (e.KeyCode == Keys.Enter)
+                {
+                    this.btnOk.PerformClick();
+                }
+            }
+        }
+
+        private void txtBusqueda_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (this.txtBusqueda.Text.Length > 0 && this.dgvData.RowCount > 0)
+            {
+                this.txtBusqueda.Select();
+                this.txtBusqueda.SelectionStart = this.txtBusqueda.Text.Length;
+            }
         }
     }
 }

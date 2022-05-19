@@ -161,5 +161,80 @@ namespace Windows.Forms
             this.btnGuardar.Enabled = true;
             this.btnEliminar.Enabled = false;
         }
+
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            this.txtId.Text = "";
+            this.txtNombres.Text = "";
+            this.txtDocumento.Text = "";
+            this.txtDireccion.Text = "";
+            this.txtCelular.Text = "";
+
+            this.pictureBox1.Image = null;
+            this.pictureBox2.Image = null;
+            this.pictureBox3.Image = null;
+
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.Enabled = true;
+            this.btnEliminar.Enabled = false;
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
+
+            var cliente = new ClienteEntity
+            {
+                Id = id,
+                Documento = this.txtDocumento.Text,
+                NombreCompleto = this.txtNombres.Text,
+                Direccion = this.txtDireccion.Text,
+                Celular = this.txtCelular.Text,
+                Imagen1 = this.pictureBox1.Image != null ? Utils.Utils.ImageToByteArray(this.pictureBox1.Image) : null,
+                Imagen2 = this.pictureBox1.Image != null ? Utils.Utils.ImageToByteArray(this.pictureBox2.Image) : null,
+                Imagen3 = this.pictureBox1.Image != null ? Utils.Utils.ImageToByteArray(this.pictureBox3.Image) : null,
+            };
+
+            var response = ClienteModel.Guardar(cliente);
+            if (response.Response)
+            {
+                MessageBox.Show("El registro fue guardado");
+                this.btnNuevo.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            frmBusquedaCliente busqueda = new frmBusquedaCliente();
+
+            var result = busqueda.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                int val = busqueda.Id;
+                CargarCliente(val);
+                this.btnGuardar.Text = "Actualizar";
+                this.btnGuardar.Enabled = true;
+                this.btnEliminar.Enabled = true;
+            }
+        }
+
+        private void btnEliminar_Click_1(object sender, EventArgs e)
+        {
+            int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
+            var response = ClienteModel.Eliminar(id);
+            if (response.Response)
+            {
+                MessageBox.Show("Registro eliminado");
+                this.btnNuevo.PerformClick();
+            }
+            else
+            {
+                MessageBox.Show(response.Message);
+            }
+        }
     }
 }

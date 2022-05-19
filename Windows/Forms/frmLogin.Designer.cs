@@ -104,7 +104,7 @@ namespace Windows.Forms
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Location = new System.Drawing.Point(186, 135);
+            this.label2.Location = new System.Drawing.Point(186, 141);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(135, 32);
@@ -130,11 +130,12 @@ namespace Windows.Forms
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.MintCream;
             this.txtUsuario.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(86, 75);
+            this.txtUsuario.Location = new System.Drawing.Point(86, 81);
             this.txtUsuario.Margin = new System.Windows.Forms.Padding(6);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(344, 42);
             this.txtUsuario.TabIndex = 2;
+            this.txtUsuario.Text = "user";
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
@@ -142,12 +143,13 @@ namespace Windows.Forms
             // 
             this.txtContrasena.BackColor = System.Drawing.Color.MintCream;
             this.txtContrasena.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasena.Location = new System.Drawing.Point(86, 167);
+            this.txtContrasena.Location = new System.Drawing.Point(86, 179);
             this.txtContrasena.Margin = new System.Windows.Forms.Padding(6);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(344, 47);
             this.txtContrasena.TabIndex = 3;
+            this.txtContrasena.Text = "123456";
             this.txtContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasena_KeyPress);
             // 
