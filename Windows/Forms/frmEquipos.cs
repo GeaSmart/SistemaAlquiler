@@ -23,7 +23,7 @@ namespace Windows.Forms
         {
             this.txtId.Text = "";
             this.txtCodigo.Text = "";
-            this.cmbTipo.SelectedIndex = -1;
+            this.txtTipo.Text = "";
             this.txtDescripcion.Text = "";
             this.txtSerie.Text = "";
             this.txtMarca.Text = "";
@@ -41,6 +41,7 @@ namespace Windows.Forms
         {
             this.btnNuevo.PerformClick();
             cargarMarcas();
+            cargarTipos();
         }
         private void cargarMarcas()
         {
@@ -54,6 +55,18 @@ namespace Windows.Forms
             this.txtMarca.AutoCompleteCustomSource = coleccion;
         }
 
+        private void cargarTipos()
+        {
+            var listadoMarcas = ConfigModel.Obtener("TIPO").Data;
+            AutoCompleteStringCollection coleccion = new AutoCompleteStringCollection();
+
+            foreach (ConfigEntity item in listadoMarcas)
+            {
+                coleccion.Add(item.Value);
+            }
+            this.txtTipo.AutoCompleteCustomSource = coleccion;
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             int id = this.txtId.Text.Length > 0 ? Convert.ToInt32(this.txtId.Text) : 0;
@@ -62,7 +75,7 @@ namespace Windows.Forms
             {
                 Id = id,
                 Codigo = this.txtCodigo.Text,
-                Tipo = (this.cmbTipo.SelectedItem == null) ? "" : this.cmbTipo.SelectedItem.ToString(),
+                Tipo = this.txtTipo.Text,
                 Descripcion = this.txtDescripcion.Text,
                 Serie = this.txtSerie.Text,
                 Marca = this.txtMarca.Text,
@@ -73,9 +86,10 @@ namespace Windows.Forms
 
             var response = EquipoModel.Guardar(equipo);
             if (response.Response)
-            {
-                MessageBox.Show("El registro fue guardado");
+            {                
                 procesarMarcas(new ConfigEntity { Value = equipo.Marca });
+                procesarTipos(new ConfigEntity { Value = equipo.Tipo });
+                MessageBox.Show("El registro fue guardado");
                 this.btnNuevo.PerformClick();
             }
             else
@@ -88,6 +102,12 @@ namespace Windows.Forms
         {
             ConfigModel.GuardarMarca(entidad);
             ConfigModel.EliminarMarcasDuplicadas();
+        }
+
+        void procesarTipos(ConfigEntity entidad)
+        {
+            ConfigModel.GuardarTipo(entidad);
+            ConfigModel.EliminarTiposDuplicadas();
         }
 
         private void btnCarga_Click(object sender, EventArgs e)
@@ -127,7 +147,7 @@ namespace Windows.Forms
 
             this.txtId.Text = equipo.Id.ToString();
             this.txtCodigo.Text = equipo.Codigo;
-            this.cmbTipo.SelectedItem = equipo.Tipo;
+            this.txtTipo.Text = equipo.Tipo;
             this.txtDescripcion.Text = equipo.Descripcion;
             this.txtSerie.Text = equipo.Serie;
             this.txtMarca.Text = equipo.Marca;
@@ -149,6 +169,34 @@ namespace Windows.Forms
             {
                 MessageBox.Show(response.Message);
             }
+        }
+
+        private void txtTipo_TextChanged(object sender, EventArgs e)
+        {
+            if (this.txtTipo.Text.Length >= 3)
+            {
+                this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId();
+            }
+            else
+            {
+                this.txtCodigo.Text = string.Empty;
+            }
+        }
+
+        private string getLastId()
+        {
+            var response = (ConfigModel.GetLastId() + 1).ToString();
+
+            switch (response.Length)
+            {
+                case 1:
+                    response = "00" + response;
+                    break;
+                case 2:
+                    response = "0" + response;
+                    break;
+            }
+            return response;
         }
     }
 }

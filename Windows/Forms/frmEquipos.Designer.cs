@@ -33,6 +33,7 @@ namespace Windows.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.nudPrecioBaseDia = new System.Windows.Forms.NumericUpDown();
@@ -53,7 +54,6 @@ namespace Windows.Forms
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbTipo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
@@ -62,6 +62,7 @@ namespace Windows.Forms
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtTipo);
             this.groupBox1.Controls.Add(this.txtMarca);
             this.groupBox1.Controls.Add(this.txtModelo);
             this.groupBox1.Controls.Add(this.nudPrecioBaseDia);
@@ -82,7 +83,6 @@ namespace Windows.Forms
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cmbTipo);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(18, 19);
@@ -93,6 +93,17 @@ namespace Windows.Forms
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del equipo";
+            // 
+            // txtTipo
+            // 
+            this.txtTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtTipo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTipo.Location = new System.Drawing.Point(241, 93);
+            this.txtTipo.Name = "txtTipo";
+            this.txtTipo.Size = new System.Drawing.Size(266, 43);
+            this.txtTipo.TabIndex = 41;
+            this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
             // 
             // txtMarca
             // 
@@ -311,20 +322,6 @@ namespace Windows.Forms
             this.label2.TabIndex = 2;
             this.label2.Text = "Código";
             // 
-            // cmbTipo
-            // 
-            this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "TABLEROS",
-            "MESAS",
-            "ANDAMIOS",
-            "ROTOMARTILLOS"});
-            this.cmbTipo.Location = new System.Drawing.Point(241, 93);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(266, 45);
-            this.cmbTipo.TabIndex = 1;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -365,7 +362,6 @@ namespace Windows.Forms
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbTipo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Button btnNuevo;
@@ -379,5 +375,6 @@ namespace Windows.Forms
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.TextBox txtTipo;
     }
 }
