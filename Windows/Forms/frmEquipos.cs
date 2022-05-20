@@ -209,7 +209,8 @@ namespace Windows.Forms
 
         private void btnRefrescarCodigo_Click(object sender, EventArgs e)
         {
-            this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId(this.txtTipo.Text);
+            if (this.txtTipo.Text.Length >= 3)
+                this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId(this.txtTipo.Text);
         }
     }
 }

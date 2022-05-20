@@ -24,7 +24,6 @@ namespace Windows.Forms
             
             frmLogin login = new frmLogin(this);
             login.MdiParent = this;
-            //login.Location =
         }
 
         private void contratosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,8 +84,7 @@ namespace Windows.Forms
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-            //frmLogin login = new frmLogin(this);
-            //login.ShowDialog();
+
         }
 
         private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)

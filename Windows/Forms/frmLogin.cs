@@ -41,6 +41,11 @@ namespace Windows.Forms
                     this.principal.txtUsuario.Text = response.Username;
                     this.principal.txtIsAdmin.Text = response.IsAdmin == true ? "Admin" : "User";
                     this.principal.administraciónToolStripMenuItem.Visible = response.IsAdmin;
+
+                    frmContratos frm = new frmContratos();
+                    frm.MdiParent = this.MdiParent;
+                    frm.Show();
+
                     this.Close();
                 }
                 else
