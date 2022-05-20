@@ -13,7 +13,7 @@ namespace Windows.Utils
         {
             Mapper.Initialize(config => {
                 config.AddProfile<MappingProfile>();
-                config.ValidateInlineMaps = false;
+                //config.ValidateInlineMaps = false;
                 }
             );
             Mapper.AssertConfigurationIsValid();

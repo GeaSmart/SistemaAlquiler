@@ -33,6 +33,7 @@ namespace Windows.Forms
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEquipos));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRefrescarCodigo = new System.Windows.Forms.Button();
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtModelo = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@ namespace Windows.Forms
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRefrescarCodigo = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrecioBaseDia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImagen)).BeginInit();
@@ -96,6 +96,17 @@ namespace Windows.Forms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del equipo";
             // 
+            // btnRefrescarCodigo
+            // 
+            this.btnRefrescarCodigo.Image = ((System.Drawing.Image)(resources.GetObject("btnRefrescarCodigo.Image")));
+            this.btnRefrescarCodigo.Location = new System.Drawing.Point(835, 92);
+            this.btnRefrescarCodigo.Name = "btnRefrescarCodigo";
+            this.btnRefrescarCodigo.Size = new System.Drawing.Size(49, 44);
+            this.btnRefrescarCodigo.TabIndex = 42;
+            this.btnRefrescarCodigo.TabStop = false;
+            this.btnRefrescarCodigo.UseVisualStyleBackColor = true;
+            this.btnRefrescarCodigo.Click += new System.EventHandler(this.btnRefrescarCodigo_Click);
+            // 
             // txtTipo
             // 
             this.txtTipo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -104,7 +115,7 @@ namespace Windows.Forms
             this.txtTipo.Location = new System.Drawing.Point(241, 93);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(266, 43);
-            this.txtTipo.TabIndex = 41;
+            this.txtTipo.TabIndex = 1;
             this.txtTipo.TextChanged += new System.EventHandler(this.txtTipo_TextChanged);
             // 
             // txtMarca
@@ -115,7 +126,7 @@ namespace Windows.Forms
             this.txtMarca.Location = new System.Drawing.Point(241, 275);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(412, 43);
-            this.txtMarca.TabIndex = 40;
+            this.txtMarca.TabIndex = 4;
             // 
             // txtModelo
             // 
@@ -123,7 +134,7 @@ namespace Windows.Forms
             this.txtModelo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(412, 43);
-            this.txtModelo.TabIndex = 37;
+            this.txtModelo.TabIndex = 5;
             // 
             // nudPrecioBaseDia
             // 
@@ -136,7 +147,8 @@ namespace Windows.Forms
             0});
             this.nudPrecioBaseDia.Name = "nudPrecioBaseDia";
             this.nudPrecioBaseDia.Size = new System.Drawing.Size(120, 43);
-            this.nudPrecioBaseDia.TabIndex = 36;
+            this.nudPrecioBaseDia.TabIndex = 6;
+            this.nudPrecioBaseDia.Enter += new System.EventHandler(this.nudPrecioBaseDia_Enter);
             // 
             // label7
             // 
@@ -156,6 +168,7 @@ namespace Windows.Forms
             this.btnCarga.Name = "btnCarga";
             this.btnCarga.Size = new System.Drawing.Size(50, 43);
             this.btnCarga.TabIndex = 33;
+            this.btnCarga.TabStop = false;
             this.btnCarga.Text = "...";
             this.btnCarga.UseVisualStyleBackColor = true;
             this.btnCarga.Click += new System.EventHandler(this.btnCarga_Click);
@@ -167,6 +180,7 @@ namespace Windows.Forms
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(243, 43);
             this.txtId.TabIndex = 32;
+            this.txtId.TabStop = false;
             this.txtId.Visible = false;
             // 
             // label9
@@ -189,7 +203,8 @@ namespace Windows.Forms
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(164, 80);
             this.btnEliminar.TabIndex = 28;
-            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.TabStop = false;
+            this.btnEliminar.Text = "&Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
@@ -203,7 +218,8 @@ namespace Windows.Forms
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(220, 80);
             this.btnNuevo.TabIndex = 27;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.TabStop = false;
+            this.btnNuevo.Text = "&Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
@@ -217,7 +233,8 @@ namespace Windows.Forms
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(220, 80);
             this.btnBuscar.TabIndex = 26;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TabStop = false;
+            this.btnBuscar.Text = "&Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = false;
@@ -233,7 +250,8 @@ namespace Windows.Forms
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(220, 80);
             this.btnGuardar.TabIndex = 25;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TabStop = false;
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -247,6 +265,7 @@ namespace Windows.Forms
             this.txtCodigo.ReadOnly = true;
             this.txtCodigo.Size = new System.Drawing.Size(187, 43);
             this.txtCodigo.TabIndex = 17;
+            this.txtCodigo.TabStop = false;
             // 
             // label6
             // 
@@ -295,7 +314,7 @@ namespace Windows.Forms
             this.txtSerie.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtSerie.Name = "txtSerie";
             this.txtSerie.Size = new System.Drawing.Size(412, 43);
-            this.txtSerie.TabIndex = 6;
+            this.txtSerie.TabIndex = 3;
             // 
             // label3
             // 
@@ -313,7 +332,7 @@ namespace Windows.Forms
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(643, 43);
-            this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.TabIndex = 2;
             // 
             // label2
             // 
@@ -334,16 +353,6 @@ namespace Windows.Forms
             this.label1.Size = new System.Drawing.Size(70, 37);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tipo";
-            // 
-            // btnRefrescarCodigo
-            // 
-            this.btnRefrescarCodigo.Image = ((System.Drawing.Image)(resources.GetObject("btnRefrescarCodigo.Image")));
-            this.btnRefrescarCodigo.Location = new System.Drawing.Point(835, 92);
-            this.btnRefrescarCodigo.Name = "btnRefrescarCodigo";
-            this.btnRefrescarCodigo.Size = new System.Drawing.Size(49, 44);
-            this.btnRefrescarCodigo.TabIndex = 42;
-            this.btnRefrescarCodigo.UseVisualStyleBackColor = true;
-            this.btnRefrescarCodigo.Click += new System.EventHandler(this.btnRefrescarCodigo_Click);
             // 
             // frmEquipos
             // 

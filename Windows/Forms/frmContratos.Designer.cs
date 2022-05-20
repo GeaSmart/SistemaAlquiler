@@ -30,14 +30,14 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContratos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtReferencia = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtDireccionObra = new System.Windows.Forms.TextBox();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblSumatoria = new System.Windows.Forms.Label();
@@ -59,13 +59,13 @@ namespace Windows.Forms
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.cmbCliente = new System.Windows.Forms.ComboBox();
             this.txtBuscarCliente = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblExiste = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
@@ -120,7 +120,18 @@ namespace Windows.Forms
             this.txtReferencia.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtReferencia.Name = "txtReferencia";
             this.txtReferencia.Size = new System.Drawing.Size(696, 43);
-            this.txtReferencia.TabIndex = 9;
+            this.txtReferencia.TabIndex = 3;
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtObservaciones.Location = new System.Drawing.Point(1233, 47);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(292, 96);
+            this.txtObservaciones.TabIndex = 4;
             // 
             // label9
             // 
@@ -138,18 +149,7 @@ namespace Windows.Forms
             this.txtDireccionObra.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDireccionObra.Name = "txtDireccionObra";
             this.txtDireccionObra.Size = new System.Drawing.Size(696, 43);
-            this.txtDireccionObra.TabIndex = 7;
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservaciones.Location = new System.Drawing.Point(1233, 47);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(292, 96);
-            this.txtObservaciones.TabIndex = 12;
+            this.txtDireccionObra.TabIndex = 2;
             // 
             // label13
             // 
@@ -202,7 +202,8 @@ namespace Windows.Forms
             this.nudAdicional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nudAdicional.Name = "nudAdicional";
             this.nudAdicional.Size = new System.Drawing.Size(122, 43);
-            this.nudAdicional.TabIndex = 18;
+            this.nudAdicional.TabIndex = 7;
+            this.nudAdicional.Enter += new System.EventHandler(this.nudAdicional_Enter);
             // 
             // label15
             // 
@@ -233,16 +234,19 @@ namespace Windows.Forms
             this.txtConceptoAdicional.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtConceptoAdicional.Name = "txtConceptoAdicional";
             this.txtConceptoAdicional.Size = new System.Drawing.Size(421, 43);
-            this.txtConceptoAdicional.TabIndex = 15;
+            this.txtConceptoAdicional.TabIndex = 6;
             // 
             // button8
             // 
+            this.button8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.Location = new System.Drawing.Point(28, 58);
             this.button8.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(74, 68);
-            this.button8.TabIndex = 1;
+            this.button8.Size = new System.Drawing.Size(97, 124);
+            this.button8.TabIndex = 5;
+            this.button8.Text = "&+Add";
+            this.button8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -264,13 +268,14 @@ namespace Windows.Forms
             this.Dias,
             this.MontoDia,
             this.Monto});
-            this.dgvDetalleContrato.Location = new System.Drawing.Point(122, 58);
+            this.dgvDetalleContrato.Location = new System.Drawing.Point(142, 58);
             this.dgvDetalleContrato.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvDetalleContrato.Name = "dgvDetalleContrato";
             this.dgvDetalleContrato.RowHeadersWidth = 51;
             this.dgvDetalleContrato.RowTemplate.Height = 24;
-            this.dgvDetalleContrato.Size = new System.Drawing.Size(1412, 369);
-            this.dgvDetalleContrato.TabIndex = 0;
+            this.dgvDetalleContrato.Size = new System.Drawing.Size(1392, 369);
+            this.dgvDetalleContrato.TabIndex = 20;
+            this.dgvDetalleContrato.TabStop = false;
             this.dgvDetalleContrato.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellValidated);
             this.dgvDetalleContrato.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridView1_CellValidating);
             this.dgvDetalleContrato.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetalleContrato_RowsAdded);
@@ -316,12 +321,12 @@ namespace Windows.Forms
             // FechaInicio
             // 
             this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle4.NullValue = null;
-            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.NullValue = null;
+            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle2;
             this.FechaInicio.HeaderText = "Fecha de inicio";
             this.FechaInicio.MinimumWidth = 6;
             this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.Width = 238;
+            this.FechaInicio.Width = 218;
             // 
             // FechaFin
             // 
@@ -329,7 +334,7 @@ namespace Windows.Forms
             this.FechaFin.HeaderText = "Fecha fin";
             this.FechaFin.MinimumWidth = 6;
             this.FechaFin.Name = "FechaFin";
-            this.FechaFin.Width = 167;
+            this.FechaFin.Width = 154;
             // 
             // Dias
             // 
@@ -364,7 +369,8 @@ namespace Windows.Forms
             this.btnImprimir.Name = "btnImprimir";
             this.btnImprimir.Size = new System.Drawing.Size(306, 56);
             this.btnImprimir.TabIndex = 5;
-            this.btnImprimir.Text = "Guardar e Imprimir";
+            this.btnImprimir.TabStop = false;
+            this.btnImprimir.Text = "Guardar e &Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = true;
             this.btnImprimir.Click += new System.EventHandler(this.btnImprimir_Click);
             // 
@@ -377,7 +383,8 @@ namespace Windows.Forms
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(159, 56);
             this.btnGuardar.TabIndex = 6;
-            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.TabStop = false;
+            this.btnGuardar.Text = "&Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -393,6 +400,19 @@ namespace Windows.Forms
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1625, 102);
             this.panel1.TabIndex = 7;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(49, 23);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(159, 56);
+            this.btnLimpiar.TabIndex = 17;
+            this.btnLimpiar.TabStop = false;
+            this.btnLimpiar.Text = "&Nuevo";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // cmbCliente
             // 
@@ -420,7 +440,7 @@ namespace Windows.Forms
             this.txtBuscarCliente.Location = new System.Drawing.Point(297, 56);
             this.txtBuscarCliente.Name = "txtBuscarCliente";
             this.txtBuscarCliente.Size = new System.Drawing.Size(594, 43);
-            this.txtBuscarCliente.TabIndex = 15;
+            this.txtBuscarCliente.TabIndex = 1;
             this.txtBuscarCliente.TextChanged += new System.EventHandler(this.txtBuscarCliente_TextChanged);
             // 
             // groupBox1
@@ -459,7 +479,8 @@ namespace Windows.Forms
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(275, 103);
             this.btnNuevo.TabIndex = 17;
-            this.btnNuevo.Text = "Crear nuevo cliente";
+            this.btnNuevo.TabStop = false;
+            this.btnNuevo.Text = "&Crear nuevo cliente";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
@@ -478,18 +499,6 @@ namespace Windows.Forms
             this.lblExiste.TabIndex = 18;
             this.lblExiste.Text = ".";
             this.lblExiste.Visible = false;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(49, 23);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(159, 56);
-            this.btnLimpiar.TabIndex = 17;
-            this.btnLimpiar.Text = "Nuevo";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmContratos
             // 

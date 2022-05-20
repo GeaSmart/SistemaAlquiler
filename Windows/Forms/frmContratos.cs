@@ -27,6 +27,7 @@ namespace Windows.Forms
         private void frmAlquileres_Load(object sender, EventArgs e)
         {
             //cargarClientes();
+            this.txtBuscarCliente.Select();
         }
         private void cargarClientes()
         {
@@ -257,6 +258,8 @@ namespace Windows.Forms
             this.txtObservaciones.Text = "";
 
             this.lblSumatoria.Text = "";
+
+            this.txtBuscarCliente.Select();
         }
 
         private bool GuardarContrato()
@@ -331,6 +334,11 @@ namespace Windows.Forms
         private void dgvDetalleContrato_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             calcularSuma();
+        }
+
+        private void nudAdicional_Enter(object sender, EventArgs e)
+        {
+            this.nudAdicional.Select(0, this.nudAdicional.Text.Length);
         }
     }
 }

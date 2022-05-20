@@ -14,8 +14,7 @@ namespace Windows.Utils
         public MappingProfile()
         {
             CreateMap<ClienteEntity, ClienteDTO>()
-                .ForMember(dest => dest.DocumentoNombreCompleto, opt => opt.MapFrom(src => $"{src.Documento} - {src.NombreCompleto}"))
-                .ReverseMap();
+                .ForMember(dest => dest.DocumentoNombreCompleto, opt => opt.MapFrom(src => $"{src.Documento} - {src.NombreCompleto}"));
         }
     }
 }

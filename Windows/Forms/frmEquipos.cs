@@ -36,6 +36,8 @@ namespace Windows.Forms
 
             cargarMarcas();
             isSearchMode = false;
+
+            this.txtTipo.Select();
         }
 
         private void frmEquipos_Load(object sender, EventArgs e)
@@ -43,6 +45,8 @@ namespace Windows.Forms
             this.btnNuevo.PerformClick();
             cargarMarcas();
             cargarTipos();
+
+            this.txtTipo.Select();
         }
         private void cargarMarcas()
         {
@@ -211,6 +215,11 @@ namespace Windows.Forms
         {
             if (this.txtTipo.Text.Length >= 3)
                 this.txtCodigo.Text = this.txtTipo.Text.Substring(0, 3) + getLastId(this.txtTipo.Text);
+        }
+
+        private void nudPrecioBaseDia_Enter(object sender, EventArgs e)
+        {
+            this.nudPrecioBaseDia.Select(0, this.nudPrecioBaseDia.Text.Length);
         }
     }
 }

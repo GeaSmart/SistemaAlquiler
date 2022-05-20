@@ -23,6 +23,7 @@ namespace Windows.Forms
         private void frmClientes_Load(object sender, EventArgs e)
         {
             this.btnNuevo.PerformClick();
+            this.txtNombres.Select();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -145,23 +146,6 @@ namespace Windows.Forms
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            this.txtId.Text = "";
-            this.txtNombres.Text = "";
-            this.txtDocumento.Text = "";
-            this.txtDireccion.Text = "";
-            this.txtCelular.Text = "";
-
-            this.pictureBox1.Image = null;
-            this.pictureBox2.Image = null;
-            this.pictureBox3.Image = null;
-
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.Enabled = true;
-            this.btnEliminar.Enabled = false;
-        }
-
         private void btnNuevo_Click_1(object sender, EventArgs e)
         {
             this.txtId.Text = "";
@@ -177,6 +161,8 @@ namespace Windows.Forms
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.Enabled = true;
             this.btnEliminar.Enabled = false;
+
+            this.txtNombres.Select();
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
