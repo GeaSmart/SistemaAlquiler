@@ -1,4 +1,5 @@
-﻿using CrystalDecisions.CrystalReports.Engine;
+﻿using AutoMapper;
+using CrystalDecisions.CrystalReports.Engine;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.DTO;
 using Windows.Entities;
 using Windows.Model;
 
@@ -168,10 +170,12 @@ namespace Windows.Forms
                         x.Documento.Contains(this.txtBuscarCliente.Text)
                 ).ToList();
 
+            var clientesDTO = Mapper.Map<List<ClienteDTO>>(listado);
+
             if (listado.Count > 0 && this.txtBuscarCliente.Text.Length > 0)
             {
-                this.cmbCliente.DataSource = listado;
-                this.cmbCliente.DisplayMember = "NombreCompleto";
+                this.cmbCliente.DataSource = clientesDTO;
+                this.cmbCliente.DisplayMember = "DocumentoNombreCompleto";
                 this.cmbCliente.ValueMember = "Id";
 
                 this.lblExiste.Text = "";

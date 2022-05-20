@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Windows.Utils;
 
 namespace Windows
 {
@@ -16,6 +17,9 @@ namespace Windows
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // configuracion estatica de automapper
+            AutoMapperConfiguration.Configure();
             Application.Run(new Forms.frmPrincipal());
         }
     }
