@@ -30,7 +30,11 @@ namespace Windows.Forms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmContratos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -47,15 +51,6 @@ namespace Windows.Forms
             this.txtConceptoAdicional = new System.Windows.Forms.TextBox();
             this.button8 = new System.Windows.Forms.Button();
             this.dgvDetalleContrato = new System.Windows.Forms.DataGridView();
-            this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EquipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MontoDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimir = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -66,6 +61,15 @@ namespace Windows.Forms
             this.label1 = new System.Windows.Forms.Label();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblExiste = new System.Windows.Forms.Label();
+            this.Opciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EquipoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaInicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaFin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MontoDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudAdicional)).BeginInit();
@@ -281,85 +285,6 @@ namespace Windows.Forms
             this.dgvDetalleContrato.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetalleContrato_RowsAdded);
             this.dgvDetalleContrato.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvDetalleContrato_RowsRemoved);
             // 
-            // Opciones
-            // 
-            this.Opciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Opciones.HeaderText = "+";
-            this.Opciones.MinimumWidth = 6;
-            this.Opciones.Name = "Opciones";
-            this.Opciones.ReadOnly = true;
-            this.Opciones.Visible = false;
-            this.Opciones.Width = 200;
-            // 
-            // EquipoId
-            // 
-            this.EquipoId.DataPropertyName = "EquipoId";
-            this.EquipoId.HeaderText = "EquipoId";
-            this.EquipoId.MinimumWidth = 10;
-            this.EquipoId.Name = "EquipoId";
-            this.EquipoId.ReadOnly = true;
-            this.EquipoId.Visible = false;
-            this.EquipoId.Width = 200;
-            // 
-            // Codigo
-            // 
-            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.MinimumWidth = 6;
-            this.Codigo.Name = "Codigo";
-            this.Codigo.ReadOnly = true;
-            this.Codigo.Width = 150;
-            // 
-            // Equipo
-            // 
-            this.Equipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Equipo.HeaderText = "Equipo";
-            this.Equipo.MinimumWidth = 6;
-            this.Equipo.Name = "Equipo";
-            this.Equipo.ReadOnly = true;
-            // 
-            // FechaInicio
-            // 
-            this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle2.NullValue = null;
-            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle2;
-            this.FechaInicio.HeaderText = "Fecha de inicio";
-            this.FechaInicio.MinimumWidth = 6;
-            this.FechaInicio.Name = "FechaInicio";
-            this.FechaInicio.Width = 218;
-            // 
-            // FechaFin
-            // 
-            this.FechaFin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.FechaFin.HeaderText = "Fecha fin";
-            this.FechaFin.MinimumWidth = 6;
-            this.FechaFin.Name = "FechaFin";
-            this.FechaFin.Width = 154;
-            // 
-            // Dias
-            // 
-            this.Dias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Dias.HeaderText = "Dias";
-            this.Dias.MinimumWidth = 10;
-            this.Dias.Name = "Dias";
-            this.Dias.Width = 113;
-            // 
-            // MontoDia
-            // 
-            this.MontoDia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.MontoDia.HeaderText = "MontoDia";
-            this.MontoDia.MinimumWidth = 10;
-            this.MontoDia.Name = "MontoDia";
-            this.MontoDia.Width = 182;
-            // 
-            // Monto
-            // 
-            this.Monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Monto.HeaderText = "Monto";
-            this.Monto.MinimumWidth = 6;
-            this.Monto.Name = "Monto";
-            this.Monto.Width = 142;
-            // 
             // btnImprimir
             // 
             this.btnImprimir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -500,6 +425,95 @@ namespace Windows.Forms
             this.lblExiste.Text = ".";
             this.lblExiste.Visible = false;
             // 
+            // Opciones
+            // 
+            this.Opciones.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Opciones.HeaderText = "+";
+            this.Opciones.MinimumWidth = 6;
+            this.Opciones.Name = "Opciones";
+            this.Opciones.ReadOnly = true;
+            this.Opciones.Visible = false;
+            this.Opciones.Width = 41;
+            // 
+            // EquipoId
+            // 
+            this.EquipoId.DataPropertyName = "EquipoId";
+            this.EquipoId.HeaderText = "EquipoId";
+            this.EquipoId.MinimumWidth = 10;
+            this.EquipoId.Name = "EquipoId";
+            this.EquipoId.ReadOnly = true;
+            this.EquipoId.Visible = false;
+            this.EquipoId.Width = 200;
+            // 
+            // Codigo
+            // 
+            this.Codigo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.MinimumWidth = 6;
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            this.Codigo.Width = 150;
+            // 
+            // Equipo
+            // 
+            this.Equipo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Equipo.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.MinimumWidth = 6;
+            this.Equipo.Name = "Equipo";
+            this.Equipo.ReadOnly = true;
+            // 
+            // FechaInicio
+            // 
+            this.FechaInicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle3.NullValue = null;
+            this.FechaInicio.DefaultCellStyle = dataGridViewCellStyle3;
+            this.FechaInicio.HeaderText = "Fecha de inicio";
+            this.FechaInicio.MinimumWidth = 6;
+            this.FechaInicio.Name = "FechaInicio";
+            this.FechaInicio.Width = 238;
+            // 
+            // FechaFin
+            // 
+            this.FechaFin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.FechaFin.HeaderText = "Fecha fin";
+            this.FechaFin.MinimumWidth = 6;
+            this.FechaFin.Name = "FechaFin";
+            this.FechaFin.Width = 167;
+            // 
+            // Dias
+            // 
+            this.Dias.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Dias.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Dias.HeaderText = "Dias";
+            this.Dias.MinimumWidth = 10;
+            this.Dias.Name = "Dias";
+            this.Dias.ReadOnly = true;
+            this.Dias.Width = 113;
+            // 
+            // MontoDia
+            // 
+            this.MontoDia.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.MontoDia.HeaderText = "MontoDia";
+            this.MontoDia.MinimumWidth = 10;
+            this.MontoDia.Name = "MontoDia";
+            this.MontoDia.Width = 182;
+            // 
+            // Monto
+            // 
+            this.Monto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Monto.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Monto.HeaderText = "Monto";
+            this.Monto.MinimumWidth = 6;
+            this.Monto.Name = "Monto";
+            this.Monto.ReadOnly = true;
+            this.Monto.Width = 142;
+            // 
             // frmContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -554,6 +568,8 @@ namespace Windows.Forms
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblExiste;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
@@ -563,7 +579,5 @@ namespace Windows.Forms
         private System.Windows.Forms.DataGridViewTextBoxColumn Dias;
         private System.Windows.Forms.DataGridViewTextBoxColumn MontoDia;
         private System.Windows.Forms.DataGridViewTextBoxColumn Monto;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Label label1;
     }
 }

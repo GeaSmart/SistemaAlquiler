@@ -135,7 +135,7 @@ namespace Windows.Forms
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(344, 42);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.Text = "user";
+            this.txtUsuario.Text = "usuario";
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
@@ -149,7 +149,6 @@ namespace Windows.Forms
             this.txtContrasena.PasswordChar = '*';
             this.txtContrasena.Size = new System.Drawing.Size(344, 47);
             this.txtContrasena.TabIndex = 3;
-            this.txtContrasena.Text = "123456";
             this.txtContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtContrasena.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContrasena_KeyPress);
             // 
