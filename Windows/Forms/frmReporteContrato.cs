@@ -44,7 +44,9 @@ namespace Windows.Forms
         {
             ReportDocument reporte = new ReportDocument();
             reporte.Load("Contrato.rpt");
-            reporte.SetDatabaseLogon("sa", "EC1admin");
+            //reporte.DataSourceConnections[0].IntegratedSecurity = true;
+            reporte.SetDatabaseLogon("sa", "EC1admin", ".", "Alquiler"); reporte.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
+            reporte.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA4;
             reporte.SetParameterValue("@ContratoId", _Id);
             this.crvReporte.ReportSource = reporte;
         }
@@ -53,7 +55,10 @@ namespace Windows.Forms
         {
             ReportDocument reporte = new ReportDocument();
             reporte.Load("Contrato.rpt");
-            reporte.SetDatabaseLogon("sa", "EC1admin");
+            //reporte.DataSourceConnections[0].IntegratedSecurity = true;            
+            reporte.SetDatabaseLogon("sa", "EC1admin",".","Alquiler");
+            reporte.PrintOptions.PaperOrientation = CrystalDecisions.Shared.PaperOrientation.Portrait;
+            reporte.PrintOptions.PaperSize = CrystalDecisions.Shared.PaperSize.PaperA4;
             reporte.SetParameterValue("@ContratoId", this.cmbContratos.SelectedValue.ToString());
             this.crvReporte.ReportSource = reporte;
         }
